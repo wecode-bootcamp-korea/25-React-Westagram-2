@@ -1,0 +1,82 @@
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginBody {
+  @include flex;
+  width: 100vw;
+  height: 100vh;
+  background: #fafafa;
+}
+
+/* cotainer_section */
+
+.cotainer {
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid #e7e7e7;
+  background: white;
+  overflow: hidden;
+
+  section {
+    margin-bottom: 10rem;
+  }
+
+  footer {
+    margin: 1.5rem 0;
+    text-align: center;
+
+    .forget_password {
+      color: #00376b;
+      font-size: 1rem;
+    }
+  }
+}
+
+.logo {
+  font-family: 'Lobster';
+  margin: 2rem auto 4rem auto;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.loginBox {
+  width: 100%;
+  overflow: hidden;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+
+    input {
+      margin: 0.2rem 0;
+      border: 1px solid #efefef;
+      font-size: 16px;
+      color: rgba(38, 38, 38, 1);
+      background: #fafafa;
+    }
+
+    input,
+    .loginBtn {
+      padding: 9px 0 7px 8px;
+      border-radius: 3px;
+    }
+  }
+}
+
+.loginBtn {
+  margin-top: 1.5rem;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #b8dffc;
+
+  .password {
+    margin-bottom: 2rem;
+  }
+}
