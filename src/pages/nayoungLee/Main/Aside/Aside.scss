@@ -1,0 +1,59 @@
+.Aside {
+	position: fixed;
+	right: calc((100% - 935px) / 2);
+	max-width: 293px;
+	height: 100vh;
+
+	.me-profile {
+		display: flex;
+		align-items: center;
+		margin-top: 18px;
+
+		a {
+			width: 56px;
+			height: 56px;
+		}
+
+		.me-nametag {
+			margin-left: 16px !important;
+		}
+	}
+
+	.me-change-button, .follow-button {
+		position: absolute;
+		right: 0;
+		font-size: 12px;
+		font-weight: bold;
+		color: #0095F6;
+	}
+	
+	footer {
+		ul {
+			margin-bottom: 16px;
+			list-style: none;
+	
+			li {
+				display: inline-block;
+	
+				&::after {
+					margin: 0 .25em 0 .25em;
+					content: "·";
+				}
+	
+				&:last-child::after {
+					content: none;
+				}
+			}
+		}
+
+		span {
+			text-transform: uppercase;
+		}
+
+		li a, span, li::after {
+			font-size: 11px;
+			color: #C7C7C7;
+		}
+	}
+}
+

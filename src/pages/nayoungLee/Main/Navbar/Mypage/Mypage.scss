@@ -1,0 +1,53 @@
+@import "../Navbar.scss";
+
+.Mypage {
+	position: absolute;
+	top: 53px;
+	display: none;
+	width: 190px;
+	margin-right: -28px;
+	border-radius: 6px;
+	box-shadow: 0 0 5px 1px rgba(0, 0, 0, .0975);
+
+	.mypage-box-peak {
+		position: absolute;
+		transform: rotate(45deg);
+		top: -7px;
+		left: 143px;
+		width: 14px;
+		height: 14px;
+		background-color: white;
+		box-shadow: 0 0 5px 1px rgba(0, 0, 0, .0975);
+	}
+	
+	.mypage-box-list {
+		position: relative;
+		border-radius: 6px;
+		background-color: white;
+	}
+	
+	.mypage-box-item {
+		display: flex;
+		align-items: center;
+		height: 37px;
+		padding: 8px 16px;
+		
+		&:last-child {
+			height: 40px;
+			border-top: 1px solid #e6e6e6;
+		}
+		
+		@include list-item-hover;
+
+		i {
+			width: 20px;
+			margin-right: 12px;
+			text-align: center;
+			font-size: 16px;
+		}
+	}
+	
+	.show {
+		display: block !important;
+	}
+}

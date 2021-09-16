@@ -1,0 +1,47 @@
+@import "../../Navbar.scss";
+
+.SearchBox {
+	position: absolute;
+	top: 41px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: none;
+	width: 375px;
+	border-radius: 6px;
+	box-shadow: 0 0 5px 1px rgba(0, 0, 0, .0975);
+
+	.search-box-peak {
+		position: absolute;
+		transform: rotate(45deg);
+		top: -7px;
+		left: 182px;
+		width: 14px;
+		height: 14px;
+		background-color: white;
+		box-shadow: 0 0 5px 1px rgba(0, 0, 0, .0975);
+	}
+	
+	.search-box-list {
+		position: relative;
+		height: 362px;
+		padding-top: 12px;
+		border-radius: 6px;
+		background-color: white;
+		overflow-y: auto;
+	}
+	
+	.search-box-item {
+		display: flex;
+		align-items: center;
+		padding: 8px 16px;
+
+		img {
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+		}
+
+		@include list-item-hover;
+	}
+}
+

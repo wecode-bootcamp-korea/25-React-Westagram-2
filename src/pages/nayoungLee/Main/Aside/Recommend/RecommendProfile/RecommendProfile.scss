@@ -1,0 +1,15 @@
+.RecommendProfile {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+
+	a {
+		width: 32px;
+		height: 32px;
+	}
+
+	.status {
+		font-size: 12px;
+		color: #8E8E8E;
+	}
+}
