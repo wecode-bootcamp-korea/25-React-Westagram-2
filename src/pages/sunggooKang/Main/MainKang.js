@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './MainKang.scss';
 import '../../../styles/common.scss';
 import '../../../styles/reset.scss';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCompass,
+  faSearch,
+  faUserCircle,
+} from '@fortawesome/free-solid-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 class MainKang extends React.Component {
   render() {
@@ -13,25 +19,36 @@ class MainKang extends React.Component {
         <nav className="firstLine">
           <div className="logo">
             <div className="innerLogo">
-              <i className="fab fa-instagram"></i>
+              <FontAwesomeIcon
+                icon={faInstagram}
+                className="fab fa-instagram"
+              />
+              {/* <i className="fab fa-instagram"></i> */}
             </div>
             <div className="innerLogo letter">| instagram</div>
           </div>
           <div className="search">
             <div className="searchLogo">
-              <i className="fas fa-search"></i>
+              <FontAwesomeIcon icon={faSearch} className="fas fa-search" />
+              {/* <i className="fas fa-search"></i> */}
             </div>
             <input type="text" placeholder="검색" />
           </div>
           <div className="profile">
             <div>
-              <i className="far fa-compass"></i>
+              <FontAwesomeIcon icon={faCompass} className="far fa-compass" />
+              {/* <i className="far fa-compass"></i> */}
             </div>
             <div>
-              <i className="far fa-heart"></i>
+              <FontAwesomeIcon icon={faHeart} className="far fa-heart" />
+              {/* <i className="far fa-heart"></i> */}
             </div>
             <div>
-              <i className="far fa-user-circle"></i>
+              <FontAwesomeIcon
+                icon={faUserCircle}
+                className="far fa-user-circle"
+              />
+              {/* <i className="far fa-user-circle"></i> */}
             </div>
           </div>
         </nav>
