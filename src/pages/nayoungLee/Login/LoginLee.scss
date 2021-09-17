@@ -35,7 +35,7 @@
     }
   }
 
-  .button {
+  button {
     width: 100%;
     margin: 8px 0;
     padding: 6px 9px;
@@ -47,7 +47,7 @@
     font-size: 14px;
     cursor: default;
 
-    .active {
+    &.active {
       background-color: #0095f6;
       cursor: pointer;
     }
