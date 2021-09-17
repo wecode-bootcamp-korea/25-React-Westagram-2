@@ -3,30 +3,47 @@ import { Link } from 'react-router-dom';
 import './LoginLee.scss';
 
 class LoginLee extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      id: '',
+      pw: '',
+    };
+  }
+
+  handleIdInput = e => {
+    this.setState({
+      id: e.target.value,
+    });
+  };
+
+  handlePwInput = e => {
+    this.setState({
+      pw: e.target.value,
+    });
+  };
+
   goToMain = () => {
     this.props.history.push('/mainLee');
   };
 
   render() {
+    console.log(this.state);
     return (
-      <div className="Login">
-        <h1 className="login-logo">Westagram</h1>
-        <div className="login-form">
+      <div className="LoginLee">
+        <h1 className="logo">Westagram</h1>
+        <div className="form">
           <input
-            className="login-id"
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
+            onChange={this.handleIdInput}
           />
           <input
-            className="login-password"
             type="password"
             placeholder="비밀번호"
+            onChange={this.handlePwInput}
           />
-          <button
-            className="login-button"
-            disabled={true}
-            onClick={this.goToMain}
-          >
+          <button className="button" disabled={true} onClick={this.goToMain}>
             로그인
           </button>
         </div>

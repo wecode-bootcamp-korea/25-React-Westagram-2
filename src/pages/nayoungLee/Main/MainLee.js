@@ -7,7 +7,7 @@ import './MainLee.scss';
 class MainLee extends React.Component {
   render() {
     return (
-      <div className="Main">
+      <div className="MainLee">
         <Navbar />
         <main>
           <div className="feeds">

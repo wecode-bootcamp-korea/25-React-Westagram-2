@@ -1,4 +1,4 @@
-.Login {
+.LoginLee {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10,14 +10,14 @@
   background-color: white;
   text-align: center;
 
-  .login-logo {
+  .logo {
     padding: 30px 0;
     font-family: 'Lobster', cursive;
     font-size: 40px;
     font-weight: bold;
   }
 
-  .login-form {
+  .form {
     margin: 10px 0 85px 0;
 
     input {
@@ -35,7 +35,7 @@
     }
   }
 
-  .login-button {
+  .button {
     width: 100%;
     margin: 8px 0;
     padding: 6px 9px;

@@ -14,6 +14,9 @@ import MainHa from './pages/sangyoungHa/Main/MainHa';
 import LoginLee from './pages/nayoungLee/Login/LoginLee';
 import MainLee from './pages/nayoungLee/Main/MainLee';
 
+import './styles/common.scss';
+import './styles/reset.scss';
+
 class Routes extends React.Component {
   render() {
     return (
