@@ -20,23 +20,14 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route path="/LoginShin" component={LoginShin} />
-
           <Route path="/mainShin" component={MainShin} />
-
           <Route path="/LoginKim" component={LoginKim} />
-
           <Route path="/mainKim" component={MainKim} />
-
           <Route path="/LoginHa" component={LoginHa} />
-
           <Route path="/mainHa" component={MainHa} />
-
           <Route path="/LoginKang" component={LoginKang} />
-
           <Route path="/mainKang" component={MainKang} />
-
           <Route path="/LoginLee" component={LoginLee} />
-
           <Route path="/mainLee" component={MainLee} />
         </Switch>
       </Router>

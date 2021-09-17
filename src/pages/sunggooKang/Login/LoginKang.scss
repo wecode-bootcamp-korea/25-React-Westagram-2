@@ -1,0 +1,71 @@
+.Login{
+
+  margin: 0;
+
+  .container {
+    left : 50%;
+    top : 50%;
+    transform: translate(-50%,50%);
+    border: 1px solid grey;
+    display : flex;
+    flex-direction: column;
+    background-color: white;
+    width: 500px;
+    height : 500px;
+    position: relative;
+    margin : 0;
+    padding: 0;
+
+    .first {
+      margin : 30px;
+      font-size: 60px;
+      font-family: 'Amiri', serif;
+      font-family: 'Lobster', cursive;
+      margin-bottom: 60px;
+
+      .id{
+        width: 350px;
+      }
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    input {
+      font-size: 15px;
+      border: solid rgb(191, 191, 191) 1px;
+      border-radius: 5px;
+      position: relative;
+      width : 350px;
+      padding: 8px;
+      margin : 5px 10px 0 0;
+      left : 50%;
+      transform: translate(-50%);
+    }
+
+    .login {
+      color: white;
+      display: inline;
+      background-color: #C4E1FB;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 25px;
+      border: 0;
+      cursor: pointer;
+      position : relative;
+      width : 350px;
+      padding: 5px;
+      margin-top: 15px;
+      left : 50%;
+      transform: translate(-50%);
+    }
+
+    .pwFind {
+      color : blue;
+      font-weight: 700;
+      width: 45%;
+      margin: 130px auto 0;
+    }
+  }
+}

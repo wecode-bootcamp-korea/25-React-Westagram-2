@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-class Nav extends Component {
-    render(){
-        return null;
-    }
+class Nav extends React.Component {
+  render() {
+    return null;
+  }
 }
 export default Nav;
