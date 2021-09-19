@@ -4,7 +4,21 @@ import FeedCommentLine from './FeedCommentLine/FeedCommentLine';
 import './Feed.scss';
 
 class Feed extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      comment: '',
+    };
+  }
+
+  handleCommentTextarea = e => {
+    this.setState({
+      comment: e.target.value,
+    });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <article className="Feed">
         <header className="feed-profile">
@@ -57,9 +71,9 @@ class Feed extends React.Component {
             </Link>
           </div>
           <div className="feed-comments">
-            <FeedCommentLine />
-            <FeedCommentLine />
-            <FeedCommentLine />
+            {this.props.commentList.map((el, index) => (
+              <FeedCommentLine key={index} comment={el} />
+            ))}
           </div>
           <Link className="feed-date" to="">
             6월 30일
@@ -72,8 +86,14 @@ class Feed extends React.Component {
           <textarea
             className="my-comment"
             placeholder="댓글 달기..."
+            onChange={this.handleCommentTextarea}
           ></textarea>
-          <button className="comment-submit-button" disabled={true}>
+          <button
+            className={this.state.comment ? 'active' : 'comment-submit-button'}
+            onClick={() =>
+              this.props.submitComment(this.state.comment, this.props.id)
+            }
+          >
             게시
           </button>
         </div>

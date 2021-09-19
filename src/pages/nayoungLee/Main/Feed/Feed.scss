@@ -97,11 +97,11 @@
       color: #c4e1fb;
       font-weight: bold;
       cursor: default;
-
-      .active {
-        color: #0095f6;
-        cursor: pointer;
-      }
+    }
+    .active {
+      font-weight: bold;
+      color: #0095f6;
+      cursor: pointer;
     }
   }
 

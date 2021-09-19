@@ -58,7 +58,8 @@ class LoginLee extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    const { isBtnOn } = this.state;
+
     return (
       <div className="LoginLee">
         <h1 className="logo">Westagram</h1>
@@ -74,8 +75,8 @@ class LoginLee extends React.Component {
             onChange={this.handlePwInput}
           />
           <button
-            className={this.state.isBtnOn ? 'active' : ''}
-            disabled={!this.state.isBtnOn}
+            className={isBtnOn ? 'active' : ''}
+            disabled={!isBtnOn}
             onClick={this.goToMain}
           >
             로그인

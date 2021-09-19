@@ -10,7 +10,7 @@ class FeedCommentLine extends React.Component {
           <Link className="id" to="">
             nylee9621
           </Link>{' '}
-          <span>내용 블라블라</span>
+          <span>{this.props.comment}</span>
         </div>
         <div>
           <button className="feed-comment-heart-button">
