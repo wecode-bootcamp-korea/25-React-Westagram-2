@@ -2,14 +2,33 @@ import React, { Component } from 'react';
 import './LoginShin.scss';
 
 class LoginShin extends Component {
+  constructor() {
+    super();
+    this.state = {
+      idInput: '',
+      pwInput: '',
+    };
+  }
+
   goToMainShin = () => {
     this.props.history.push('/MainShin');
+  };
+
+  handleIdInput = e => {
+    this.setState({
+      idInput: e.target.value,
+    });
+  };
+
+  handlePwInput = e => {
+    this.setState({
+      pwInput: e.target.value,
+    });
   };
 
   render() {
     return (
       <div className="loginBody">
-        'test'
         <div className="cotainer">
           <header>
             <h1 className="logo">
@@ -22,11 +41,13 @@ class LoginShin extends Component {
               <div className="loginBox">
                 <form>
                   <input
+                    onChange={this.handleIdInput}
                     type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
                     className="loginInput info"
                   />
                   <input
+                    onChange={this.handlePwInput}
                     type="password"
                     placeholder="비밀번호"
                     className="loginInput password"
