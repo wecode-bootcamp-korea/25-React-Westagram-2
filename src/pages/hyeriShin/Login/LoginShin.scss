@@ -54,27 +54,32 @@
 
     input {
       margin: 0.2rem 0;
+      padding: 9px 0 7px 8px;
+      border-radius: 3px;
       border: 1px solid #efefef;
       font-size: 16px;
       color: rgba(38, 38, 38, 1);
       background: #fafafa;
     }
 
-    input,
-    .loginBtn {
+    button {
+      margin-top: 1.5rem;
       padding: 9px 0 7px 8px;
       border-radius: 3px;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
   }
-}
 
-.loginBtn {
-  margin-top: 1.5rem;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: #b8dffc;
+  .loginBtnOff {
+    background: #b8dffc;
+  }
+
+  .loginBtnOn {
+    background: #61bafd;
+  }
 
   .password {
     margin-bottom: 2rem;

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './LoginShin.scss';
 
 class LoginShin extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       idInput: '',
       pwInput: '',
@@ -27,6 +27,9 @@ class LoginShin extends Component {
   };
 
   render() {
+    const isLoginBtn =
+      this.state.idInput.includes('@') && this.state.pwInput.length >= 5;
+
     return (
       <div className="loginBody">
         <div className="cotainer">
@@ -53,7 +56,11 @@ class LoginShin extends Component {
                     className="loginInput password"
                   />
 
-                  <button className="loginBtn" onClick={this.goToMainShin}>
+                  <button
+                    className={isLoginBtn ? 'loginBtnOn' : 'loginBtnOff'}
+                    disabled={!isLoginBtn}
+                    onClick={this.goToMainShin}
+                  >
                     로그인
                   </button>
                 </form>
@@ -62,7 +69,7 @@ class LoginShin extends Component {
           </section>
 
           <footer>
-            {/* <a href="#" target="_blank" class="forget_password">비밀번호를 잊으셨나요?</a> */}
+            <span class="forget_password">비밀번호를 잊으셨나요?</span>
           </footer>
         </div>
       </div>
