@@ -9,6 +9,7 @@ class LoginShin extends Component {
   render() {
     return (
       <div className="loginBody">
+        'test'
         <div className="cotainer">
           <header>
             <h1 className="logo">
