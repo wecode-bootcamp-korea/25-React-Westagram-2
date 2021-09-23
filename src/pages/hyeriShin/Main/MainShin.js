@@ -6,7 +6,8 @@ class MainShin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: [{ id: 'Jetom', reply: '' }],
+      reply: '',
+      comment: [],
     };
   }
 
@@ -16,13 +17,18 @@ class MainShin extends Component {
     });
   };
 
-  uesrsCommentAdd = {};
-
-  handleKeyPress = e => {
-    if (e.key === 13) {
-      this.uesrsCommentAdd();
-    }
+  uesrsCommentAdd = e => {
+    e.preventDefault();
+    this.setState({
+      comment: this.state.comment.concat(this.state.reply),
+      reply: '',
+    });
   };
+
+  // handleKeyPress = e => {
+  //   if (e.key === 13) {
+  //   }
+  // };
 
   render() {
     return (
@@ -121,17 +127,26 @@ class MainShin extends Component {
                     </p>
                   </div>
 
-                  <div className="feeds_comment_uesrs">{}</div>
+                  <div className="feeds_comment_uesrs">
+                    {this.state.comment.map((comment, index) => {
+                      return (
+                        <p key={index}>
+                          <span>{comment}</span>
+                        </p>
+                      );
+                    })}
+                  </div>
 
                   <p className="feeds_comment_tiem">1분전</p>
                 </div>
               </div>
+
               <div className="comment_input">
                 <form>
                   <input
                     className="comment_input_txt"
                     onChange={this.uesrsCommentState}
-                    onKeyPress={this.handleKeyPress}
+                    value={this.state.reply}
                     type="text"
                     placeholder="댓글 달기..."
                   />
