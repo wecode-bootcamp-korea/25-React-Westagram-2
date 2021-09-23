@@ -7,6 +7,7 @@ class LoginShin extends Component {
     this.state = {
       idInput: '',
       pwInput: '',
+      isLoginBtn: false,
     };
   }
 
