@@ -17,6 +17,12 @@ class Feed extends React.Component {
     });
   };
 
+  resetCommentTextarea = () => {
+    this.setState({
+      comment: '',
+    });
+  };
+
   render() {
     console.log(this.state);
     return (
@@ -49,8 +55,17 @@ class Feed extends React.Component {
         <div className="feed-reaction">
           <div className="feed-buttons">
             <div>
-              <button className="feed-button feed-heart-button">
-                <i className="far fa-heart"></i>
+              <button
+                className="feed-button feed-heart-button"
+                onClick={() =>
+                  this.props.changeIsLike(this.props.feedId, this.props.isLike)
+                }
+              >
+                {this.props.isLike ? (
+                  <i className="fas fa-heart"></i>
+                ) : (
+                  <i className="far fa-heart"></i>
+                )}
               </button>
               <button className="feed-button">
                 <i className="far fa-comment"></i>
@@ -60,19 +75,31 @@ class Feed extends React.Component {
               </button>
             </div>
             <div>
-              <button className="feed-button feed-bookmark-button">
-                <i className="far fa-bookmark"></i>
+              <button
+                className="feed-button feed-bookmark-button"
+                onClick={() => this.props.changeIsBookmark(this.props.feedId)}
+              >
+                {this.props.isBookmark ? (
+                  <i className="fas fa-bookmark"></i>
+                ) : (
+                  <i className="far fa-bookmark"></i>
+                )}
               </button>
             </div>
           </div>
           <div className="feed-like">
             <Link to="">
-              좋아요 <span className="feed-like-num">7</span>개
+              좋아요 <span className="feed-like-num">{this.props.likeNum}</span>
+              개
             </Link>
           </div>
           <div className="feed-comments">
-            {this.props.commentList.map((el, index) => (
-              <FeedCommentLine key={index} comment={el} />
+            {this.props.commentList.map(comment => (
+              <FeedCommentLine
+                key={comment.commentId}
+                userId={comment.userId}
+                comment={comment.comment}
+              />
             ))}
           </div>
           <Link className="feed-date" to="">
@@ -90,8 +117,9 @@ class Feed extends React.Component {
           ></textarea>
           <button
             className={this.state.comment ? 'active' : 'comment-submit-button'}
+            disabled={!this.state.comment}
             onClick={() =>
-              this.props.submitComment(this.state.comment, this.props.id)
+              this.props.submitComment(this.props.feedId, this.state.comment)
             }
           >
             게시

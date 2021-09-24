@@ -8,7 +8,7 @@ class FeedCommentLine extends React.Component {
       <div className="FeedCommentLine">
         <div>
           <Link className="id" to="">
-            nylee9621
+            {this.props.userId}
           </Link>{' '}
           <span>{this.props.comment}</span>
         </div>
