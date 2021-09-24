@@ -97,8 +97,12 @@ class Feed extends React.Component {
             {this.props.commentList.map(comment => (
               <FeedCommentLine
                 key={comment.commentId}
+                feedId={this.props.feedId}
+                commentId={comment.commentId}
                 userId={comment.userId}
                 comment={comment.comment}
+                isLike={comment.isLike}
+                changeCommentIsLike={this.props.changeCommentIsLike}
               />
             ))}
           </div>

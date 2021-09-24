@@ -15,8 +15,18 @@ class MainLee extends React.Component {
           isBookmark: false,
           likeNum: 7,
           commentList: [
-            { commentId: 0, userId: 'kimjis1004', comment: 'hello' },
-            { commentId: 1, userId: 'nylee9621', comment: 'bye' },
+            {
+              commentId: 0,
+              userId: 'kimjis1004',
+              comment: 'hello',
+              isLike: true,
+            },
+            {
+              commentId: 1,
+              userId: 'nylee9621',
+              comment: 'bye bye',
+              isLike: true,
+            },
           ],
         },
         {
@@ -25,9 +35,24 @@ class MainLee extends React.Component {
           isBookmark: true,
           likeNum: 40,
           commentList: [
-            { commentId: 0, userId: 'quattro9037', comment: '뭐하니' },
-            { commentId: 1, userId: 'nylee9621', comment: '놀아' },
-            { commentId: 2, userId: 'quattro9037', comment: '왜 놀아' },
+            {
+              commentId: 0,
+              userId: 'quattro9037',
+              comment: '뭐하니',
+              isLike: false,
+            },
+            {
+              commentId: 1,
+              userId: 'nylee9621',
+              comment: '놀아',
+              isLike: false,
+            },
+            {
+              commentId: 2,
+              userId: 'quattro9037',
+              comment: '왜 놀아',
+              isLike: true,
+            },
           ],
         },
       ],
@@ -72,6 +97,38 @@ class MainLee extends React.Component {
     });
   };
 
+  changeCommentIsLike = (feedId, commentId) => {
+    this.setState({
+      feedList: this.state.feedList.map(feed =>
+        feed.feedId === feedId
+          ? {
+              feedId: feedId,
+              isLike: this.state.feedList[feedId].isLike,
+              isBookmark: this.state.feedList[feedId].isBookmark,
+              likeNum: this.state.feedList[feedId].likeNum,
+              commentList: this.state.feedList[feedId].commentList.map(
+                comment =>
+                  comment.commentId === commentId
+                    ? {
+                        commentId: commentId,
+                        userId:
+                          this.state.feedList[feedId].commentList[commentId]
+                            .userId,
+                        comment:
+                          this.state.feedList[feedId].commentList[commentId]
+                            .comment,
+                        isLike:
+                          !this.state.feedList[feedId].commentList[commentId]
+                            .isLike,
+                      }
+                    : comment
+              ),
+            }
+          : feed
+      ),
+    });
+  };
+
   submitComment = (feedId, comment) => {
     this.setState({
       feedList: this.state.feedList.map(feed =>
@@ -85,6 +142,7 @@ class MainLee extends React.Component {
                 commentId: this.state.feedList[feedId].commentList.length,
                 userId: 'nylee9621',
                 comment: comment,
+                isLike: false,
               }),
             }
           : feed
@@ -108,6 +166,7 @@ class MainLee extends React.Component {
                 commentList={feed.commentList}
                 changeIsLike={this.changeIsLike}
                 changeIsBookmark={this.changeIsBookmark}
+                changeCommentIsLike={this.changeCommentIsLike}
                 submitComment={this.submitComment}
               />
             ))}

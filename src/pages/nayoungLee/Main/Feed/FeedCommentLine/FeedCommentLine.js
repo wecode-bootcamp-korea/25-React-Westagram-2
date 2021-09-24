@@ -13,8 +13,20 @@ class FeedCommentLine extends React.Component {
           <span>{this.props.comment}</span>
         </div>
         <div>
-          <button className="feed-comment-heart-button">
-            <i className="far fa-heart"></i>
+          <button
+            className="feed-comment-heart-button"
+            onClick={() =>
+              this.props.changeCommentIsLike(
+                this.props.feedId,
+                this.props.commentId
+              )
+            }
+          >
+            {this.props.isLike ? (
+              <i className="fas fa-heart"></i>
+            ) : (
+              <i className="far fa-heart"></i>
+            )}
           </button>
         </div>
       </div>
