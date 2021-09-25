@@ -3,22 +3,37 @@ import { Link } from 'react-router-dom';
 import './LoginKim.scss';
 
 class LoginKim extends Component {
-  checkIdPassword() {
-    let id = document.getElementById('user-id');
-    let password = document.getElementById('user-password');
-    let login = document.getElementById('login');
-    let checkString = '@';
-
-    id.value.indexOf(checkString) != -1 && password.value.length > 5
-      ? (login.disabled = false)
-      : (login.disabled = true);
+  constructor() {
+    super();
+    this.state = {
+      id: '',
+      pw: '',
+    };
   }
+
+  handleIdInput = e => {
+    this.setState({
+      id: e.target.value,
+    });
+  };
+
+  handlePwInput = e => {
+    this.setState({
+      pw: e.target.value,
+    });
+  };
 
   goToMain = () => {
     this.props.history.push('/MainKim');
   };
 
   render() {
+    const isValidIdAndPassword = (id, pw) => {
+      return !(
+        this.state.id.includes('@') === true && this.state.pw.length > 5
+      );
+    };
+
     return (
       <div className="Login">
         <div className="wrapper">
@@ -30,16 +45,16 @@ class LoginKim extends Component {
               id="user-id"
               type="text"
               placeholder="전화번호,사용자 이름 또는 이메일"
-              onKeyUp={this.checkIdPassword}
+              onChange={this.handleIdInput}
             />
             <input
               id="user-password"
               type="password"
               placeholder="비밀번호"
-              onKeyUp={this.checkIdPassword}
+              onChange={this.handlePwInput}
             />
             <Link to="/MainKim">
-              <button id="login" disabled>
+              <button id="login" disabled={isValidIdAndPassword()}>
                 로그인
               </button>
             </Link>
