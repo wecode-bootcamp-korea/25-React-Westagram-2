@@ -166,7 +166,7 @@
     justify-content: space-between;
     width: 100%;
     font-size: 23px;
-    padding: 2px 0px 2px 0px;
+    padding: 2px 10px 2px 0px;
   }
   .reply-left {
     margin-left: 10px;
@@ -202,14 +202,14 @@
 
   .comments .owner-id:nth-child(1) {
     padding-left: 16px;
-    margin-right: 1px;
-    margin-bottom: 1px;
+    margin-right: 6px;
   }
 
   .owner-id {
     padding-left: 5px;
     margin-right: 6px;
     font-weight: bold;
+    margin-top: 1px;
   }
 
   .comment-wrapper {
@@ -223,7 +223,7 @@
 
   .comment-wrapper button {
     width: 50px;
-    height: 30px;
+    height: 32px;
     background-color: #fafafa;
     border: 0px;
   }
@@ -293,15 +293,20 @@
   }
 
   .contents {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0px 23px;
+    padding: 0px 11px;
+    font-size: 14px;
   }
 
-  .delete-btn {
+  .delete-btn,
+  .heart {
     justify-content: right;
     background-color: #fafafa;
     border: 0;
+    margin: 0;
+    padding-right: 1px;
   }
 
   .delete-btn:hover {
