@@ -11,6 +11,8 @@ class Feed extends React.Component {
     };
   }
 
+  commentRef = React.createRef();
+
   handleCommentTextarea = e => {
     this.setState({
       comment: e.target.value,
@@ -19,10 +21,20 @@ class Feed extends React.Component {
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
+  handlePressEnter = e => {
+    if (this.state.comment.replace(/(?:\r\n|\r|\n)/g, '')) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        this.clickSubmitBtn();
+      }
+    }
+  };
+
   resetCommentTextarea = () => {
     this.setState({
       comment: '',
     });
+    this.commentRef.current.style.height = '24px';
   };
 
   clickSubmitBtn = () => {
@@ -124,11 +136,17 @@ class Feed extends React.Component {
           <textarea
             className="my-comment"
             placeholder="댓글 달기..."
+            ref={this.commentRef}
             value={this.state.comment}
             onChange={this.handleCommentTextarea}
+            onKeyPress={this.handlePressEnter}
           ></textarea>
           <button
-            className={this.state.comment ? 'active' : 'comment-submit-button'}
+            className={
+              this.state.comment.replace(/(?:\r\n|\r|\n)/g, '')
+                ? 'active'
+                : 'comment-submit-button'
+            }
             disabled={!this.state.comment}
             onClick={this.clickSubmitBtn}
           >
