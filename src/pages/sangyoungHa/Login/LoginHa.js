@@ -9,6 +9,20 @@ class LoginHa extends React.Component {
   goToMain = () => {
     this.props.history.push('/mainHa');
   };
+  state = {
+    id: '',
+    pw: '',
+  };
+  handleIdInput = event => {
+    this.setState({
+      id: event.target.value,
+    });
+  };
+  handlePwInput = event => {
+    this.setState({
+      pw: event.target.value,
+    });
+  };
 
   render() {
     return (
@@ -36,11 +50,18 @@ class LoginHa extends React.Component {
                   <input
                     type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
+                    onChange={this.handleIdInput}
+                    value={this.state.id}
                   />
                 </div>
                 <div className="input-wrap">
                   {/*비밀번호가 입력될 인풋바 하나를 감싸는 wrapper div, descendant of login-bar*/}
-                  <input type="password" placeholder="비밀번호" />
+                  <input
+                    type="password"
+                    placeholder="비밀번호"
+                    onChange={this.handlePwInput}
+                    value={this.state.pw}
+                  />
                 </div>
               </div>
               <div className="button-div">
