@@ -15,6 +15,8 @@ class Feed extends React.Component {
     this.setState({
       comment: e.target.value,
     });
+    e.target.style.height = '24px';
+    e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
   resetCommentTextarea = () => {
@@ -23,8 +25,12 @@ class Feed extends React.Component {
     });
   };
 
+  clickSubmitBtn = () => {
+    this.props.submitComment(this.props.feedId, this.state.comment);
+    this.resetCommentTextarea();
+  };
+
   render() {
-    console.log(this.state);
     return (
       <article className="Feed">
         <header className="feed-profile">
@@ -118,14 +124,13 @@ class Feed extends React.Component {
           <textarea
             className="my-comment"
             placeholder="댓글 달기..."
+            value={this.state.comment}
             onChange={this.handleCommentTextarea}
           ></textarea>
           <button
             className={this.state.comment ? 'active' : 'comment-submit-button'}
             disabled={!this.state.comment}
-            onClick={() =>
-              this.props.submitComment(this.props.feedId, this.state.comment)
-            }
+            onClick={this.clickSubmitBtn}
           >
             게시
           </button>
