@@ -102,6 +102,7 @@ class Feed extends React.Component {
                 userId={comment.userId}
                 comment={comment.comment}
                 isLike={comment.isLike}
+                removeComment={this.props.removeComment}
                 changeCommentIsLike={this.props.changeCommentIsLike}
               />
             ))}

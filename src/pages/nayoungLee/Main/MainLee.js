@@ -14,6 +14,7 @@ class MainLee extends React.Component {
           isLike: false,
           isBookmark: false,
           likeNum: 7,
+          commentIdCounting: 2,
           commentList: [
             {
               commentId: 0,
@@ -34,6 +35,7 @@ class MainLee extends React.Component {
           isLike: true,
           isBookmark: true,
           likeNum: 40,
+          commentIdCounting: 3,
           commentList: [
             {
               commentId: 0,
@@ -70,11 +72,9 @@ class MainLee extends React.Component {
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
           ? {
-              feedId: feedId,
-              isLike: !this.state.feedList[feedId].isLike,
-              isBookmark: this.state.feedList[feedId].isBookmark,
+              ...feed,
+              isLike: !feed.isLike,
               likeNum: this.changeLikeNum(feedId, isLike),
-              commentList: this.state.feedList[feedId].commentList,
             }
           : feed
       ),
@@ -86,11 +86,23 @@ class MainLee extends React.Component {
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
           ? {
-              feedId: feedId,
-              isLike: this.state.feedList[feedId].isLike,
-              isBookmark: !this.state.feedList[feedId].isBookmark,
-              likeNum: this.state.feedList[feedId].likeNum,
-              commentList: this.state.feedList[feedId].commentList,
+              ...feed,
+              isBookmark: !feed.isBookmark,
+            }
+          : feed
+      ),
+    });
+  };
+
+  removeComment = (feedId, commentId) => {
+    this.setState({
+      feedList: this.state.feedList.map(feed =>
+        feed.feedId === feedId
+          ? {
+              ...feed,
+              commentList: feed.commentList.filter(
+                comment => comment.commentId !== commentId
+              ),
             }
           : feed
       ),
@@ -102,26 +114,14 @@ class MainLee extends React.Component {
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
           ? {
-              feedId: feedId,
-              isLike: this.state.feedList[feedId].isLike,
-              isBookmark: this.state.feedList[feedId].isBookmark,
-              likeNum: this.state.feedList[feedId].likeNum,
-              commentList: this.state.feedList[feedId].commentList.map(
-                comment =>
-                  comment.commentId === commentId
-                    ? {
-                        commentId: commentId,
-                        userId:
-                          this.state.feedList[feedId].commentList[commentId]
-                            .userId,
-                        comment:
-                          this.state.feedList[feedId].commentList[commentId]
-                            .comment,
-                        isLike:
-                          !this.state.feedList[feedId].commentList[commentId]
-                            .isLike,
-                      }
-                    : comment
+              ...feed,
+              commentList: feed.commentList.map(comment =>
+                comment.commentId === commentId
+                  ? {
+                      ...comment,
+                      isLike: !comment.isLike,
+                    }
+                  : comment
               ),
             }
           : feed
@@ -134,12 +134,10 @@ class MainLee extends React.Component {
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
           ? {
-              feedId: feedId,
-              isLike: this.state.feedList[feedId].isLike,
-              isBookmark: this.state.feedList[feedId].isBookmark,
-              likeNum: this.state.feedList[feedId].likeNum,
-              commentList: this.state.feedList[feedId].commentList.concat({
-                commentId: this.state.feedList[feedId].commentList.length,
+              ...feed,
+              commentIdCounting: feed.commentIdCounting + 1,
+              commentList: feed.commentList.concat({
+                commentId: feed.commentIdCounting,
                 userId: 'nylee9621',
                 comment: comment,
                 isLike: false,
@@ -166,6 +164,7 @@ class MainLee extends React.Component {
                 commentList={feed.commentList}
                 changeIsLike={this.changeIsLike}
                 changeIsBookmark={this.changeIsBookmark}
+                removeComment={this.removeComment}
                 changeCommentIsLike={this.changeCommentIsLike}
                 submitComment={this.submitComment}
               />

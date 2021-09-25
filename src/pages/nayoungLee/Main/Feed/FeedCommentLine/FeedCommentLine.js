@@ -13,6 +13,21 @@ class FeedCommentLine extends React.Component {
           <span>{this.props.comment}</span>
         </div>
         <div>
+          {this.props.userId === 'nylee9621' ? (
+            <button
+              className="feed-comment-delete-button"
+              onClick={() =>
+                this.props.removeComment(
+                  this.props.feedId,
+                  this.props.commentId
+                )
+              }
+            >
+              <i className="fas fa-ellipsis-h"></i>
+            </button>
+          ) : (
+            ''
+          )}
           <button
             className="feed-comment-heart-button"
             onClick={() =>
