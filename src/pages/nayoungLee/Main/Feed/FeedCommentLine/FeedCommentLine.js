@@ -4,40 +4,34 @@ import './FeedCommentLine.scss';
 
 class FeedCommentLine extends React.Component {
   render() {
+    const {
+      feedId,
+      commentId,
+      userId,
+      comment,
+      isLike,
+      deleteComment,
+      toggleCommentIsLike,
+    } = this.props;
+
     return (
       <div className="FeedCommentLine">
         <div>
           <Link className="id" to="">
-            {this.props.userId}
+            {userId}
           </Link>{' '}
-          <span>{this.props.comment}</span>
+          <span>{comment}</span>
         </div>
         <div>
-          {this.props.userId === 'nylee9621' ? (
-            <button
-              className="feed-comment-delete-button"
-              onClick={() =>
-                this.props.removeComment(
-                  this.props.feedId,
-                  this.props.commentId
-                )
-              }
-            >
+          {userId === 'nylee9621' ? (
+            <button onClick={() => deleteComment(feedId, commentId)}>
               <i className="fas fa-ellipsis-h"></i>
             </button>
           ) : (
             ''
           )}
-          <button
-            className="feed-comment-heart-button"
-            onClick={() =>
-              this.props.changeCommentIsLike(
-                this.props.feedId,
-                this.props.commentId
-              )
-            }
-          >
-            {this.props.isLike ? (
+          <button onClick={() => toggleCommentIsLike(feedId, commentId)}>
+            {isLike ? (
               <i className="fas fa-heart"></i>
             ) : (
               <i className="far fa-heart"></i>

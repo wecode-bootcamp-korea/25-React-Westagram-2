@@ -4,7 +4,7 @@
   border-radius: 3px;
   background-color: white;
 
-  .feed-profile {
+  .profile {
     position: relative;
     display: flex;
     align-items: center;
@@ -16,25 +16,25 @@
       height: 32px;
     }
 
-    .feed-location {
+    .location {
       font-size: 12px;
     }
 
-    .feed-option-button {
+    .option-button {
       position: absolute;
       right: 16px;
     }
   }
 
-  .feed-reaction {
+  .reaction {
     padding: 10px 16px;
 
-    .feed-buttons {
+    .button-block {
       display: flex;
       justify-content: space-between;
       margin-bottom: 8px;
 
-      .feed-bookmark-button {
+      .bookmark-button {
         margin-right: 0;
       }
     }
@@ -53,7 +53,7 @@
       }
     }
 
-    .feed-like {
+    .like-num {
       margin-bottom: 8px;
 
       a {
@@ -61,7 +61,7 @@
       }
     }
 
-    .feed-date {
+    .date {
       font-size: 10px;
       color: #8e8e8e;
     }
@@ -74,7 +74,7 @@
     padding: 0 16px;
     border-top: 1px solid #e6e6e6;
 
-    .my-comment {
+    .comment {
       display: flex;
       flex-grow: 1;
       max-height: 80px;
@@ -93,7 +93,7 @@
       }
     }
 
-    .comment-submit-button {
+    .submit-button {
       color: #c4e1fb;
       font-weight: bold;
       cursor: default;
@@ -105,7 +105,7 @@
     }
   }
 
-  .feed-button {
+  .buttons {
     margin-right: 16px;
 
     i {

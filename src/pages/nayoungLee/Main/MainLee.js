@@ -61,27 +61,27 @@ class MainLee extends React.Component {
     };
   }
 
-  changeLikeNum = (feedId, isLike) => {
-    return isLike
-      ? this.state.feedList[feedId].likeNum - 1
-      : this.state.feedList[feedId].likeNum + 1;
+  upDownLikeNum = (feedId, isLike) => {
+    const { likeNum } = this.state.feedList[feedId];
+
+    return isLike ? likeNum - 1 : likeNum + 1;
   };
 
-  changeIsLike = (feedId, isLike) => {
+  toggleIsLike = (feedId, isLike) => {
     this.setState({
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
           ? {
               ...feed,
               isLike: !feed.isLike,
-              likeNum: this.changeLikeNum(feedId, isLike),
+              likeNum: this.upDownLikeNum(feedId, isLike),
             }
           : feed
       ),
     });
   };
 
-  changeIsBookmark = feedId => {
+  toggleIsBookmark = feedId => {
     this.setState({
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
@@ -94,7 +94,7 @@ class MainLee extends React.Component {
     });
   };
 
-  removeComment = (feedId, commentId) => {
+  deleteComment = (feedId, commentId) => {
     this.setState({
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
@@ -109,7 +109,7 @@ class MainLee extends React.Component {
     });
   };
 
-  changeCommentIsLike = (feedId, commentId) => {
+  toggleCommentIsLike = (feedId, commentId) => {
     this.setState({
       feedList: this.state.feedList.map(feed =>
         feed.feedId === feedId
@@ -162,10 +162,10 @@ class MainLee extends React.Component {
                 isBookmark={feed.isBookmark}
                 likeNum={feed.likeNum}
                 commentList={feed.commentList}
-                changeIsLike={this.changeIsLike}
-                changeIsBookmark={this.changeIsBookmark}
-                removeComment={this.removeComment}
-                changeCommentIsLike={this.changeCommentIsLike}
+                toggleIsLike={this.toggleIsLike}
+                toggleIsBookmark={this.toggleIsBookmark}
+                deleteComment={this.deleteComment}
+                toggleCommentIsLike={this.toggleCommentIsLike}
                 submitComment={this.submitComment}
               />
             ))}
