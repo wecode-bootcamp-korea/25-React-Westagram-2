@@ -1,23 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import SearchBoxItem from './SearchBoxItem/SearchBoxItem';
 import './SearchBox.scss';
 
 class SearchBox extends React.Component {
   render() {
+    const { searchList, isSearchBoxOpen } = this.props;
+
     return (
-      <div className="SearchBox">
+      <div className={`SearchBox ${isSearchBoxOpen ? 'show' : ''}`}>
         <div className="search-box-peak"></div>
         <div className="search-box-list">
-          <Link className="search-box-item" to="">
-            <img
-              alt="검색된 계정 프로필 사진"
-              src="/images/nayoungLee/망붕배경.jpg"
-            />
-            <div className="nametag">
-              <span className="id non-hover-id">nylee9621</span>
-              <span className="name">이나영</span>
-            </div>
-          </Link>
+          {searchList.map((item, idx) => (
+            <SearchBoxItem key={idx} item={item} />
+          ))}
         </div>
       </div>
     );

@@ -4,8 +4,10 @@ import './Mypage.scss';
 
 class Mypage extends React.Component {
   render() {
+    const { isMypageOpen } = this.props;
+
     return (
-      <div className="Mypage">
+      <div className={`Mypage ${isMypageOpen ? 'show' : ''}`}>
         <div className="mypage-box-peak"></div>
         <div className="mypage-box-list">
           <Link to="" className="mypage-box-item">

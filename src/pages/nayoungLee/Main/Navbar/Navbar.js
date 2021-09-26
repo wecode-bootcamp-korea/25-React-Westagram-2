@@ -5,6 +5,17 @@ import Mypage from './Mypage/Mypage';
 import './Navbar.scss';
 
 class Navbar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isMypageOpen: false,
+    };
+  }
+
+  toggleMypage = () => {
+    this.setState({ isMypageOpen: !this.state.isMypageOpen });
+  };
+
   render() {
     return (
       <nav>
@@ -29,10 +40,13 @@ class Navbar extends React.Component {
                 <i className="far fa-heart"></i>
               </Link>
             </span>
-            <button className="navbar-icon mypage-button">
+            <button
+              className="navbar-icon mypage-button"
+              onClick={this.toggleMypage}
+            >
               <img alt="내 프로필 사진" src="/images/nayoungLee/망붕배경.jpg" />
             </button>
-            <Mypage />
+            <Mypage isMypageOpen={this.state.isMypageOpen} />
           </div>
         </div>
       </nav>
