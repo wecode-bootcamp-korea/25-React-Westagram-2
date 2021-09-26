@@ -76,19 +76,4 @@
       padding-top: 53px;
     }
   }
-
-  @media all and (max-width: 500px) {
-    .navbar-logo-image {
-      display: none !important;
-    }
-
-    .navbar-logo-title {
-      padding: 0;
-      border-left: none;
-    }
-
-    .navbar-center {
-      display: none;
-    }
-  }
 }

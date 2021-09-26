@@ -79,3 +79,18 @@ nav {
     border-radius: 0 0 6px 6px;
   }
 }
+
+@media all and (max-width: 500px) {
+  .navbar-logo-image {
+    display: none !important;
+  }
+
+  .navbar-logo-title {
+    padding: 0 !important;
+    border-left: none !important;
+  }
+
+  .navbar-center {
+    display: none;
+  }
+}

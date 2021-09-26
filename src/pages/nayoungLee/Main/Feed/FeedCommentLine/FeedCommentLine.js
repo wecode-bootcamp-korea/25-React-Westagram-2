@@ -22,7 +22,7 @@ class FeedCommentLine extends React.Component {
           </Link>{' '}
           <span>{comment}</span>
         </div>
-        <div>
+        <div className="right">
           {userId === 'nylee9621' ? (
             <button onClick={() => deleteComment(feedId, commentId)}>
               <i className="fas fa-ellipsis-h"></i>
@@ -32,7 +32,7 @@ class FeedCommentLine extends React.Component {
           )}
           <button onClick={() => toggleCommentIsLike(feedId, commentId)}>
             {isLike ? (
-              <i className="fas fa-heart"></i>
+              <i className="fas fa-heart heart-button-click"></i>
             ) : (
               <i className="far fa-heart"></i>
             )}

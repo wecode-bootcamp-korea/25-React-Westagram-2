@@ -90,11 +90,11 @@ class Feed extends React.Component {
           <div className="button-block">
             <div>
               <button
-                className="buttons"
+                className="buttons heart-button"
                 onClick={() => toggleIsLike(feedId, isLike)}
               >
                 {isLike ? (
-                  <i className="fas fa-heart"></i>
+                  <i className="fas fa-heart heart-button-click"></i>
                 ) : (
                   <i className="far fa-heart"></i>
                 )}
