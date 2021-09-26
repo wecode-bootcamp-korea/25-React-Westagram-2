@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class ReplyAddForm extends Component {
+class ReplyAddForm extends PureComponent {
   inputRef = React.createRef();
 
   onSubmit = event => {

@@ -9,14 +9,40 @@ import '@fortawesome/fontawesome-free/js/all.js';
 
 class MainKim extends Component {
   state = {
-    replys: [
-      { id: 1, userId: '71summernight', comment: '뭉치 넘 귀여워' },
-      { id: 2, userId: '2arrr', comment: '뭉치 잘지내?' },
-      { id: 3, userId: 'so5raa', comment: '헉 반함' },
+    recommands: [
+      {
+        id: 1,
+        userId: '2arrr',
+        src: '/images/hyunjinKim/hodu.jpeg',
+        aboutme: '호두래요',
+      },
+      {
+        id: 2,
+        userId: 'so5raa',
+        src: '/images/hyunjinKim/ggongggong.jpeg',
+        aboutme: '꿍꿍이 엄마',
+      },
+      {
+        id: 3,
+        userId: 'imdede',
+        src: '/images/hyunjinKim/dede.jpeg',
+        aboutme: '데데에용 잘부탁^^!',
+      },
+      {
+        id: 4,
+        userId: 'golden',
+        src: '/images/hyunjinKim/golden.jpeg',
+        aboutme: '골댕이 김몽충',
+      },
+      {
+        id: Date.now(),
+        userId: 'sundaymorning',
+        src: '/images/hyunjinKim/sun.jpeg',
+        aboutme: '내일의 해가 뜬당',
+      },
     ],
   };
   handleDelete = reply => {
-    console.log(`handleDelte ${reply.userId}`);
     const replys = this.state.replys.filter(item => item.id !== reply.id);
     this.setState({ replys });
   };
@@ -28,9 +54,9 @@ class MainKim extends Component {
           <div className="main-wrapper">
             <main>
               <div className="feeds-wrapper">
-                <Feed />
+                <Feed replys={this.state.replys} />
               </div>
-              <Aside />
+              <Aside recommands={this.state.recommands} />
             </main>
           </div>
         </div>

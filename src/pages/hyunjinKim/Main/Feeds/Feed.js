@@ -3,8 +3,9 @@ import Replys from './Reply/Replys';
 class Feed extends Component {
   state = {
     replys: [
-      { id: 1, userId: '2arrr', comment: '뭉치 잘지내?' },
-      { id: 2, userId: 'so5raa', comment: '헉 반함' },
+      { id: 1, userId: 'taehi.o', comment: '뭉치 넘 귀여워' },
+      { id: 2, userId: '2arrr', comment: '뭉치 잘지내?' },
+      { id: 3, userId: 'so5raa', comment: '헉 반함' },
     ],
   };
   handleDelete = reply => {

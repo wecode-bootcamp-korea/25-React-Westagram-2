@@ -16,7 +16,12 @@ class Replys extends Component {
       <>
         <>
           {this.props.replys.map(reply => (
-            <Reply key={reply.id} reply={reply} onDelete={this.handleDelete} />
+            <Reply
+              key={reply.id}
+              reply={reply}
+              comment={reply.comment}
+              onDelete={this.handleDelete}
+            />
           ))}
         </>
         <ReplyAddForm onAdd={this.handleAdd} />

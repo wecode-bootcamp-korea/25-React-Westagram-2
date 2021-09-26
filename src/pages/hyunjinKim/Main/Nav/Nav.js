@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { PureComponent } from 'react';
 
-class Nav extends Component {
+class Nav extends PureComponent {
   render() {
     return (
       <div className="nav-wrapper">
