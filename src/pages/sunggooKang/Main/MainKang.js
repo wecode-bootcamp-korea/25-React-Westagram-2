@@ -1,7 +1,5 @@
 import React from 'react';
 import './MainKang.scss';
-import '../../../styles/common.scss';
-import '../../../styles/reset.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -107,7 +105,7 @@ class MainKang extends React.Component {
               <div id="lines2" className="lines2">
                 {' '}
                 <span className="lines2lines">Wecode_bootcamp</span>
-                항커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커
+                123항커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커
               </div>
               <button className="more">더보기</button>
 
