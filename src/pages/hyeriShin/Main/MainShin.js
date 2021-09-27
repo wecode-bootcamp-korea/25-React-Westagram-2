@@ -9,18 +9,6 @@ class MainShin extends Component {
     this.state = {
       reply: '',
       comment: [],
-      commnetList: [
-        {
-          id: 1,
-          userId: '돼톰',
-          txt: '돼톰이 좋아요 😍',
-        },
-        {
-          id: 2,
-          userId: '루피',
-          txt: '루피도 좋아요 🥰',
-        },
-      ],
     };
   }
 
@@ -122,7 +110,7 @@ class MainShin extends Component {
                     </p>
                   </div>
 
-                  <div className="feeds_comment_uesrs">
+                  {/* <div className="feeds_comment_uesrs">
                     {this.state.commnetList.map(item => {
                       return (
                         <Reply
@@ -132,7 +120,7 @@ class MainShin extends Component {
                         />
                       );
                     })}
-                  </div>
+                  </div> */}
 
                   <div className="feeds_comment_like_btn_box">
                     <p>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 class Reply extends Component {
-  // {this.props.commnetList.txt}
+  componentDidMount() {}
+
   render() {
     return (
       <>
