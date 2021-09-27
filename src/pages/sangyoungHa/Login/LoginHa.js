@@ -6,25 +6,33 @@ import './LoginHa.scss';
 import { withRouter } from 'react-router-dom';
 
 class LoginHa extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      id: '',
+      pw: '',
+      isValid: false,
+    };
+  }
+
   goToMain = () => {
     this.props.history.push('/mainHa');
   };
-  state = {
-    id: '',
-    pw: '',
-  };
+
   handleIdInput = event => {
+    const { id, pw } = this.state;
+    const { name, value } = event.target;
     this.setState({
-      id: event.target.value,
+      [name]: value,
     });
-  };
-  handlePwInput = event => {
-    this.setState({
-      pw: event.target.value,
-    });
+    id.includes('@') && pw.length >= 5
+      ? this.setState({ isValid: true })
+      : this.setState({ isValid: false });
   };
 
   render() {
+    const { id, pw, isValid } = this.state;
+
     return (
       <>
         <meta charSet="utf-8" />
@@ -51,7 +59,8 @@ class LoginHa extends React.Component {
                     type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
                     onChange={this.handleIdInput}
-                    value={this.state.id}
+                    name="id"
+                    value={id}
                   />
                 </div>
                 <div className="input-wrap">
@@ -59,8 +68,9 @@ class LoginHa extends React.Component {
                   <input
                     type="password"
                     placeholder="비밀번호"
-                    onChange={this.handlePwInput}
-                    value={this.state.pw}
+                    onChange={this.handleIdInput}
+                    name="pw"
+                    value={pw}
                   />
                 </div>
               </div>
@@ -69,7 +79,11 @@ class LoginHa extends React.Component {
                 {/*<Link to="/Main"><button id="asd" type="button" >
             로그인{" "}
           </button></Link>*/}
-                <button id="asd" onClick={this.goToMain}>
+                <button
+                  onChange={this.validateInfo}
+                  className={isValid ? 'validated' : 'unvalidated'}
+                  onClick={this.goToMain}
+                >
                   로그인
                 </button>
               </div>
