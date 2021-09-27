@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginKang.scss';
-import { Link } from 'react-router-dom';
-import { configs } from 'eslint-plugin-prettier';
+// import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class LoginKang extends React.Component {
   constructor() {
@@ -26,32 +26,27 @@ class LoginKang extends React.Component {
     }
 
     // 2.  [] -> key dynamic id or pw
-    // this.setState({
-    //   this.state.id === id ?
-    // })
   };
 
-  // handleInput2 = e => {
-  //   this.setState({
-  //     pw: e.target.value,
-  //   });
-  // };
+  gotoMain = () => {
+    this.state.id.includes('@') && this.state.pw.length >= 5
+      ? this.props.history.push('./mainkang')
+      : alert('다시입력하세요');
+  };
 
   render() {
     return (
       <div className="Login">
         <form id="login_form" className="container">
           <div className="center first">instagram</div>
-
           <input
             name="id"
             type="text"
             className="id"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={this.handleInput} // 타이핑할때마다
-            value={this.state.id} // 여기에 집어넣음
+            onChange={this.handleInput}
+            value={this.state.id}
           />
-
           <input
             name="pw"
             type="password"
@@ -60,15 +55,28 @@ class LoginKang extends React.Component {
             onChange={this.handleInput}
             value={this.state.pw}
           />
-
-          <button className="login center" disabled="disabled" type="submit">
-            <Link to="/MainKang">로그인</Link>
+          {/* <Link to="/MainKang"> */}
+          <button
+            className={
+              this.state.id.includes('@') && this.state.pw.length >= 5
+                ? 'changeColor login center'
+                : 'normalColor login center'
+            }
+            // disabled 기능 구현 실패
+            // disabled={
+            //   this.state.id.includes('@') && this.state.pw.length >= 5
+            //     ? 'false'
+            //     : 'true'
+            // }
+            onClick={this.gotoMain}
+          >
+            로그인
           </button>
-
+          {/* </Link> */}
           <div className="center pwFind">비밀번호를 잊으셨나요?</div>
         </form>
       </div>
     );
   }
 }
-export default LoginKang;
+export default withRouter(LoginKang);
