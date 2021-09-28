@@ -1,19 +1,19 @@
 .Recommend {
-	margin: 24px 0;
+  margin: 24px 0;
 
-	.recommend-header {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 8px;
-	
-		span {
-			color: #8E8E8E;
-			font-weight: bold;
-		}
-	}
-	
-	.recommend-all-button {
-		font-size: 12px;
-		font-weight: bold;
-	}
+  .recommend-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    span {
+      color: #8e8e8e;
+      font-weight: bold;
+    }
+  }
+
+  .recommend-all-button {
+    font-size: 12px;
+    font-weight: bold;
+  }
 }
