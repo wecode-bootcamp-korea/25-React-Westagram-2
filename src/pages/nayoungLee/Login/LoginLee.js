@@ -61,7 +61,6 @@ class LoginLee extends React.Component {
   render() {
     const { isBtnOn } = this.state;
 
-    console.log(this.state);
     return (
       <div className="LoginLee">
         <h1 className="logo">Westagram</h1>
