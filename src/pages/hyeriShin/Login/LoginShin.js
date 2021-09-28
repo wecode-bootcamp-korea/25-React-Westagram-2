@@ -16,20 +16,24 @@ class LoginShin extends Component {
   };
 
   handleIdInput = e => {
+    const { value } = e.target;
     this.setState({
-      idInput: e.target.value,
+      idInput: value,
     });
   };
 
   handlePwInput = e => {
+    const { value } = e.target;
     this.setState({
-      pwInput: e.target.value,
+      pwInput: value,
     });
   };
 
   render() {
     const isLoginBtn =
       this.state.idInput.includes('@') && this.state.pwInput.length >= 5;
+
+    const { handleIdInput, handlePwInput, goToMainShin } = this;
 
     return (
       <div className="loginBody">
@@ -45,13 +49,13 @@ class LoginShin extends Component {
               <div className="loginBox">
                 <form>
                   <input
-                    onChange={this.handleIdInput}
+                    onChange={handleIdInput}
                     type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
                     className="loginInput info"
                   />
                   <input
-                    onChange={this.handlePwInput}
+                    onChange={handlePwInput}
                     type="password"
                     placeholder="비밀번호"
                     className="loginInput password"
@@ -60,7 +64,7 @@ class LoginShin extends Component {
                   <button
                     className={isLoginBtn ? 'loginBtnOn' : 'loginBtnOff'}
                     disabled={!isLoginBtn}
-                    onClick={this.goToMainShin}
+                    onClick={goToMainShin}
                   >
                     로그인
                   </button>

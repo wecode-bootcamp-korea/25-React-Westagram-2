@@ -2,11 +2,11 @@
   {
     "id": 1,
     "feedsUserId": "lotte_world",
-    "name": "Chichi"
+    "feedsname": "ChiChi"
   },
   {
     "id": 2,
-    "feedsUserId": "loopy_store",
-    "name": "happy_loopy"
+    "feedsUserId": "happy_loopy",
+    "feedsname": "Shinloopy"
   }
 ]

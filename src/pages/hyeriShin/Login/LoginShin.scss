@@ -1,8 +1,4 @@
-@mixin flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@import '../../../styles/common.scss';
 
 .loginBody {
   @include flex;

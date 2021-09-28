@@ -9,7 +9,18 @@ class MainShin extends Component {
     this.state = {
       reply: '',
       comment: [],
+      commentList: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
   }
 
   uesrsCommentState = e => {
@@ -110,7 +121,7 @@ class MainShin extends Component {
                     </p>
                   </div>
 
-                  {/* <div className="feeds_comment_uesrs">
+                  <div className="feeds_comment_uesrs">
                     {this.state.commnetList.map(item => {
                       return (
                         <Reply
@@ -120,7 +131,7 @@ class MainShin extends Component {
                         />
                       );
                     })}
-                  </div> */}
+                  </div>
 
                   <div className="feeds_comment_like_btn_box">
                     <p>
