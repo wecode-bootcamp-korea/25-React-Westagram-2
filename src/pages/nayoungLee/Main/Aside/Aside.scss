@@ -27,35 +27,4 @@
     font-weight: bold;
     color: #0095f6;
   }
-
-  footer {
-    ul {
-      margin-bottom: 16px;
-      list-style: none;
-
-      li {
-        display: inline-block;
-
-        &::after {
-          margin: 0 0.25em 0 0.25em;
-          content: '·';
-        }
-
-        &:last-child::after {
-          content: none;
-        }
-      }
-    }
-
-    span {
-      text-transform: uppercase;
-    }
-
-    li a,
-    span,
-    li::after {
-      font-size: 11px;
-      color: #c7c7c7;
-    }
-  }
 }
