@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './MainShin.scss';
-import '../../../styles/reset.scss';
 import Reply from './Reply';
 import COMPANY_INFO from './Company_info';
+import './MainShin.scss';
 
 class MainShin extends Component {
   constructor(props) {
@@ -66,7 +65,7 @@ class MainShin extends Component {
                   className="nav_icons_bell"
                 />
                 <img src="/images/hyeriShin/heart.png" alt="heart_img" />
-                <img src="/images/hyeriShin/profile.png" alt="profile_img" />
+                <img src="/images/hyeriShin/profile.png" alt="내 정보" />
               </div>
             </nav>
           </div>
@@ -187,9 +186,9 @@ class MainShin extends Component {
             <div className="sub_container">
               <div className="feeds_profile">
                 <img
+                  className="feed_comment_small_img"
                   src="/images/hyeriShin/feed_user.jpeg"
                   alt="feed_comment_small_img"
-                  className="feed_comment_small_img"
                 />
                 <div className="small_info">
                   <p className="feeds_user_info">jetom_loopy</p>

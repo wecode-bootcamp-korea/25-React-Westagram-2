@@ -1,4 +1,8 @@
-@import '../../../styles/common.scss';
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .MainBody {
   width: 100vw;
