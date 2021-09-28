@@ -38,6 +38,8 @@ class MainShin extends Component {
   };
 
   render() {
+    const { comment, commnetList, reply } = this.state;
+    const { uesrsCommentState, uesrsCommentAdd } = this;
     return (
       <div className="MainBody">
         <header>
@@ -122,7 +124,7 @@ class MainShin extends Component {
                   </div>
 
                   <div className="feeds_comment_uesrs">
-                    {this.state.commnetList.map(item => {
+                    {commnetList.map(item => {
                       return (
                         <Reply
                           key={item.id}
@@ -148,7 +150,7 @@ class MainShin extends Component {
                   </div>
 
                   <div className="feeds_comment_uesrs">
-                    {this.state.comment.map((comment, index) => {
+                    {comment.map((comment, index) => {
                       return (
                         <p key={index}>
                           <span>{comment}</span>
@@ -165,14 +167,14 @@ class MainShin extends Component {
                 <form>
                   <input
                     className="comment_input_txt"
-                    onChange={this.uesrsCommentState}
-                    value={this.state.reply}
+                    onChange={uesrsCommentState}
+                    value={reply}
                     type="text"
                     placeholder="댓글 달기..."
                   />
                   <button
                     className="comment_btn"
-                    onClick={this.uesrsCommentAdd}
+                    onClick={uesrsCommentAdd}
                     type="submit"
                   >
                     게시
