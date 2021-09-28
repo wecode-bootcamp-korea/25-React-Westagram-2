@@ -8,53 +8,54 @@ class LoginLee extends React.Component {
     this.state = {
       id: '',
       pw: '',
-      isIdValidation: false,
-      isPwValidation: false,
       isBtnOn: false,
     };
   }
 
-  handleIdInput = e => {
+  handleInput = e => {
+    const { name, value } = e.target;
+
     this.setState(
       {
-        id: e.target.value,
-        isIdValidation: this.changeIdValidation(e.target.value),
+        [name]: value,
       },
       this.toggleBtn
     );
-  };
-
-  handlePwInput = e => {
-    this.setState(
-      {
-        pw: e.target.value,
-        isPwValidation: this.changePwValidation(e.target.value),
-      },
-      this.toggleBtn
-    );
-  };
-
-  changeIdValidation = id => {
-    const regId = /^[a-z]+[a-z0-9]{5,19}$/;
-    const regEmail =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    const regPnum = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
-    return regId.test(id) || regEmail.test(id) || regPnum.test(id);
-  };
-
-  changePwValidation = pw => {
-    const regPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
-    return regPw.test(pw);
   };
 
   toggleBtn = () => {
     this.setState({
-      isBtnOn: this.state.isIdValidation && this.state.isPwValidation,
+      isBtnOn: this.isIdValidation() && this.isPwValidation(),
     });
+  };
+
+  isIdValidation = () => {
+    const { id } = this.state;
+
+    const regId = /^[a-z]+[a-z0-9]{5,19}$/;
+    const regEmail =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    const regPnum = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+
+    return regId.test(id) || regEmail.test(id) || regPnum.test(id);
+  };
+
+  isPwValidation = () => {
+    const { pw } = this.state;
+
+    const regPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+
+    return regPw.test(pw);
   };
 
   goToMain = () => {
     this.props.history.push('/mainLee');
+  };
+
+  handlePressEnter = e => {
+    if (e.key === 'Enter' && this.state.isBtnOn) {
+      this.goToMain();
+    }
   };
 
   render() {
@@ -70,12 +71,14 @@ class LoginLee extends React.Component {
             name="id"
             placeholder="전화번호, 사용자 이름 또는 이메일"
             onChange={this.handleInput}
+            onKeyPress={this.handlePressEnter}
           />
           <input
             type="password"
             name="pw"
             placeholder="비밀번호"
             onChange={this.handleInput}
+            onKeyPress={this.handlePressEnter}
           />
           <button
             className={isBtnOn ? 'active' : ''}
