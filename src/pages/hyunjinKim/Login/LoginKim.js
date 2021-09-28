@@ -11,16 +11,14 @@ class LoginKim extends Component {
     };
   }
 
-  handleIdInput = e => {
+  handleInput = e => {
+    console.log('sisisisi');
+    const { value, name } = e.target;
     this.setState({
-      id: e.target.value,
+      [name]: value,
     });
-  };
 
-  handlePwInput = e => {
-    this.setState({
-      pw: e.target.value,
-    });
+    console.log(e.target.name);
   };
 
   goToMain = () => {
@@ -43,15 +41,17 @@ class LoginKim extends Component {
           <main>
             <input
               id="user-id"
+              name="id"
               type="text"
               placeholder="전화번호,사용자 이름 또는 이메일"
-              onChange={this.handleIdInput}
+              onChange={this.handleInput}
             />
             <input
               id="user-password"
+              name="pw"
               type="password"
               placeholder="비밀번호"
-              onChange={this.handlePwInput}
+              onChange={this.handleInput}
             />
             <Link to="/MainKim">
               <button id="login" disabled={isValidIdAndPassword()}>
