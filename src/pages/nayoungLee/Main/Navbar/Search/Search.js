@@ -3,49 +3,34 @@ import SearchBox from './SearchBox/SearchBox';
 import './Search.scss';
 
 class Search extends React.Component {
-  searchObj = [
-    {
-      img: '망붕배경.jpg',
-      id: 'goodmin0973',
-      name: '이재원',
-    },
-    {
-      img: '망붕배경.jpg',
-      id: 'goodjung0973',
-      name: '이재원',
-    },
-    {
-      img: '망붕배경.jpg',
-      id: 'kimjis1004',
-      name: '김지선',
-    },
-    {
-      img: '망붕배경.jpg',
-      id: 'kimjis314',
-      name: '김지선',
-    },
-    {
-      img: '망붕배경.jpg',
-      id: 'cjswotls1234',
-      name: '정영민',
-    },
-  ];
-
   constructor() {
     super();
     this.state = {
       search: '',
       placeholder: '',
+      searchObj: [],
       searchList: [],
       isSearchBoxOpen: false,
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/userData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ searchObj: data });
+      });
   }
 
   handleSearchInput = e => {
     this.setState({
       search: e.target.value,
       placeholder: e.target.value,
-      searchList: this.searchObj.filter(obj => obj.id.includes(e.target.value)),
+      searchList: this.state.searchObj.filter(obj =>
+        obj.id.includes(e.target.value)
+      ),
     });
   };
 

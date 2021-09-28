@@ -8,57 +8,18 @@ class MainLee extends React.Component {
   constructor() {
     super();
     this.state = {
-      feedList: [
-        {
-          feedId: 0,
-          isLike: false,
-          isBookmark: false,
-          likeNum: 7,
-          commentIdCounting: 2,
-          commentList: [
-            {
-              commentId: 0,
-              userId: 'kimjis1004',
-              comment: 'hello',
-              isLike: true,
-            },
-            {
-              commentId: 1,
-              userId: 'nylee9621',
-              comment: 'bye bye',
-              isLike: true,
-            },
-          ],
-        },
-        {
-          feedId: 1,
-          isLike: true,
-          isBookmark: true,
-          likeNum: 40,
-          commentIdCounting: 3,
-          commentList: [
-            {
-              commentId: 0,
-              userId: 'quattro9037',
-              comment: '뭐하니',
-              isLike: false,
-            },
-            {
-              commentId: 1,
-              userId: 'nylee9621',
-              comment: '놀아',
-              isLike: false,
-            },
-            {
-              commentId: 2,
-              userId: 'quattro9037',
-              comment: '왜 놀아',
-              isLike: true,
-            },
-          ],
-        },
-      ],
+      feedList: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/feedData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ feedList: data });
+      });
   }
 
   upDownLikeNum = (feedId, isLike) => {
