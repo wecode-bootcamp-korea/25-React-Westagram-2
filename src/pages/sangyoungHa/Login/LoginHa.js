@@ -25,7 +25,7 @@ class LoginHa extends React.Component {
     this.setState({
       [name]: value,
     });
-    id.includes('@') && pw.length >= 5
+    id.includes('@') && pw.length >= 4
       ? this.setState({ isValid: true })
       : this.setState({ isValid: false });
   };
@@ -80,7 +80,6 @@ class LoginHa extends React.Component {
             로그인{" "}
           </button></Link>*/}
                 <button
-                  onChange={this.validateInfo}
                   className={isValid ? 'validated' : 'unvalidated'}
                   onClick={this.goToMain}
                 >

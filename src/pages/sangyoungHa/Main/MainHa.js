@@ -4,6 +4,33 @@ import '../../../styles/common.scss';
 import '../../../styles/reset.scss';
 
 class MainHa extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      comment: '',
+      myArray: [],
+    };
+  }
+  commentSave = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  uploadComment = () => {
+    const { comment, myArray } = this.state;
+    myArray.unshift({ commentKey: comment });
+    this.setState({ comment: '' });
+  };
+  /*
+  enterToUpload = event => {
+    const { comment, myArray } = this.state;
+    if (event.key === 'Enter') {
+      myArray.unshift({ commentKey: comment });
+      this.setState({ comment: '' });
+    }
+  };*/
   render() {
     return (
       <>
@@ -116,19 +143,39 @@ class MainHa extends React.Component {
                   <p className="gray-text" style={{ padding: 10 }}>
                     42분전
                   </p>
-                  <div id="comment-insert">
-                    {/*input 창 입력된 댓글 들어갈 슬롯*/}
+                  <div>
+                    {this.state.myArray.map(comment => {
+                      return (
+                        <div id="comment-insert">
+                          {comment.commentKey}
+                          {/*input 창 입력된 댓글 들어갈 슬롯*/}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className="comment-bar">
                   {/*댓글 인풋 바를 감싸주는 comment-bar div, descendant of feed-bottom div */}
                   <input
-                    id="event-handler"
                     className="comment-input"
                     type="text"
                     placeholder="댓글달기.... "
+                    name="comment"
+                    onChange={this.commentSave}
+                    onKeyPress={event => {
+                      if (event.key === 'Enter') {
+                        this.uploadComment();
+                      }
+                    }}
+                    /*
+                    onKeyPress={this.enterToUpload}*/
+                    value={this.state.comment}
                   />
-                  <button id="button-id" className="display-button">
+                  <button
+                    id="button-id"
+                    className="display-button"
+                    onClick={this.uploadComment}
+                  >
                     게시
                   </button>
                 </div>
