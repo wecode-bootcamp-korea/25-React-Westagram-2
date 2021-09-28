@@ -1,33 +1,33 @@
 .Login {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 
   .wrapper {
-    width: 450px;
-    height: 500px;
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 450px;
+    height: 500px;
+    background-color: white;
     border: lightgray 1px solid;
     margin-bottom: 130px;
     box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);
   }
 
   header {
+    margin: 80px 0px 50px 0px;
     font-family: 'Lobster', cursive;
     font-size: 55px;
-    margin: 80px 0px 50px 0px;
     font-weight: bold;
   }
 
   main {
-    height: 190px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    height: 190px;
     margin-bottom: 45px;
   }
 
@@ -44,14 +44,14 @@
   }
 
   button {
-    background-color: #0095f6;
-    border: #0095f6;
-    color: white;
     height: 40px;
     width: 320px;
-    margin-top: 21px;
-    font-size: 16px;
+    border: #0095f6;
     border-radius: 7px;
+    margin-top: 21px;
+    background-color: #0095f6;
+    color: white;
+    font-size: 16px;
     transition: all 0.2s ease-in;
 
     &:disabled {

@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "userId": "2arrr",
+    "src": "/images/hyunjinKim/hodu.jpeg",
+    "aboutme": "호두래요"
+  },
+  {
+    "id": 2,
+    "userId": "so5raa",
+    "src": "/images/hyunjinKim/ggongggong.jpeg",
+    "aboutme": "꿍꿍이 엄마"
+  },
+  {
+    "id": 3,
+    "userId": "imdede",
+    "src": "/images/hyunjinKim/dede.jpeg",
+    "aboutme": "데데에용 잘부탁^^!"
+  },
+  {
+    "id": 4,
+    "userId": "golden",
+    "src": "/images/hyunjinKim/golden.jpeg",
+    "aboutme": "골댕이 김몽충"
+  },
+
+  {
+    "id": 5,
+    "userId": "mongsils",
+    "src": "/images/hyunjinKim/mongsils.jpeg",
+    "aboutme": "난 문몽실이다."
+  }
+]

@@ -6,6 +6,7 @@ class ReplyAddForm extends PureComponent {
   onSubmit = event => {
     event.preventDefault();
     const replyInput = this.inputRef.current.value;
+    console.log(this.props);
     replyInput && this.props.onAdd(replyInput);
     this.inputRef.current.value = '';
   };

@@ -3,45 +3,42 @@ import './MainKim.scss';
 import '../../../styles/common.scss';
 import '../../../styles/reset.scss';
 import Aside from './Aside/Aside';
-import Feed from './Feeds/Feed';
 import Nav from './Nav/Nav';
 import '@fortawesome/fontawesome-free/js/all.js';
+import Feeds from './Feeds/Feeds';
 
 class MainKim extends Component {
-  state = {
-    recommands: [
-      {
-        id: 1,
-        userId: '2arrr',
-        src: '/images/hyunjinKim/hodu.jpeg',
-        aboutme: '호두래요',
-      },
-      {
-        id: 2,
-        userId: 'so5raa',
-        src: '/images/hyunjinKim/ggongggong.jpeg',
-        aboutme: '꿍꿍이 엄마',
-      },
-      {
-        id: 3,
-        userId: 'imdede',
-        src: '/images/hyunjinKim/dede.jpeg',
-        aboutme: '데데에용 잘부탁^^!',
-      },
-      {
-        id: 4,
-        userId: 'golden',
-        src: '/images/hyunjinKim/golden.jpeg',
-        aboutme: '골댕이 김몽충',
-      },
-      {
-        id: Date.now(),
-        userId: 'sundaymorning',
-        src: '/images/hyunjinKim/sun.jpeg',
-        aboutme: '내일의 해가 뜬당',
-      },
-    ],
-  };
+  constructor() {
+    super();
+    this.state = {
+      feeds: [],
+      recommands: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/feedData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feeds: data,
+        });
+      });
+
+    fetch('http://localhost:3000/data/recommandData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          ...this.state,
+          recommands: data,
+        });
+      });
+  }
+
   handleDelete = reply => {
     const replys = this.state.replys.filter(item => item.id !== reply.id);
     this.setState({ replys });
@@ -54,7 +51,7 @@ class MainKim extends Component {
           <div className="main-wrapper">
             <main>
               <div className="feeds-wrapper">
-                <Feed replys={this.state.replys} />
+                <Feeds feeds={this.state.feeds} />
               </div>
               <Aside recommands={this.state.recommands} />
             </main>
