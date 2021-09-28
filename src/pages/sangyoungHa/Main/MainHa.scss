@@ -192,12 +192,14 @@ $border-color: #bbb;
 
   .gray-text {
     color: lightgray;
-    //margin-left: 5px;
-    padding-top: 10px;
+    padding: 10px;
+    margin-top: 5px;
   }
+
   .td-text {
     vertical-align: middle;
   }
+
   strong {
     font-weight: bold;
   }

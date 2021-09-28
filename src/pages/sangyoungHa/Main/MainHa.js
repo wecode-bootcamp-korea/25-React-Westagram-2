@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './MainHa.scss';
 import Comment from './Comment.js';
+import './MainHa.scss';
 
 class MainHa extends React.Component {
   constructor() {
@@ -10,19 +10,21 @@ class MainHa extends React.Component {
       myArray: [],
     };
   }
+  // 댓글 입력 내용을 state 로 저장해주는 함수
   commentSave = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
   };
-
+  // state 로 저장된 입력값을 comment 라는 object 로 unshift 를 통해 넣어준다.
   uploadComment = () => {
     const { comment, myArray } = this.state;
     myArray.unshift({ commentKey: comment });
     this.setState({ comment: '' });
   };
-  /*
+  /* 엔터키 입력시 댓글이 게시되는 함수를 따로 작성했으나, '엔터키 입력시' 라는 조건을 아예 인풋태그에 주고
+     상단의 uploadComment 함수를 재사용 해주었는데 어떤게 더 좋은 방식일까????
   enterToUpload = event => {
     const { comment, myArray } = this.state;
     if (event.key === 'Enter') {
@@ -32,6 +34,7 @@ class MainHa extends React.Component {
   };*/
   render() {
     const { myArray, comment } = this.state;
+
     return (
       <>
         <meta charSet="utf-8" />
@@ -50,8 +53,6 @@ class MainHa extends React.Component {
                 className="westa-logo"
                 alt="westagram logo"
                 src="/images/sangyoungHa/westa4.png"
-                height={150}
-                width={100}
               />
             </span>
             <input
@@ -140,12 +141,11 @@ class MainHa extends React.Component {
                   <p>
                     <strong>sangchu_daddy</strong>&nbsp; Go fetch me a stick bro
                   </p>
-                  <p className="gray-text" style={{ padding: 10 }}>
-                    42분전
-                  </p>
+                  <p className="gray-text">42분전</p>
                   <div>
                     {myArray.map(comment => {
                       return <Comment comments={comment.commentKey} />;
+                      <div></div>;
                     })}
                   </div>
                 </div>
@@ -156,16 +156,15 @@ class MainHa extends React.Component {
                     type="text"
                     placeholder="댓글달기.... "
                     name="comment"
+                    value={comment}
                     onChange={this.commentSave}
                     onKeyPress={event => {
                       if (event.key === 'Enter') {
                         this.uploadComment();
-                        /*if 문이 true 이면 함수가 바로 실행되서 () 를 써줘야되는건가..? */
+                        //if 문 진입하면 함수가 바로 실행되서 () 를 써줘야되는건가..?
                       }
                     }}
-                    /*
-                    onKeyPress={this.enterToUpload}*/
-                    value={comment}
+                    //onKeyPress={this.enterToUpload}
                   />
                   <button
                     id="button-id"
@@ -189,7 +188,6 @@ class MainHa extends React.Component {
                           className="round-pics"
                           alt="profile pic"
                           src="/images/sangyoungHa/lettucedog.jpg"
-                          height="60px"
                         />
                       </td>
                       <td className="td-text">

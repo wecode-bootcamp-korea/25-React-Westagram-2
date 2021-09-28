@@ -11,17 +11,18 @@ class LoginHa extends React.Component {
       isValid: false,
     };
   }
-
+  //로그인 버튼 클릭시 MainHa 페이지로 가게 해주는 함수
   goToMain = () => {
     this.props.history.push('/mainHa');
   };
-
+  // 인풋에 입력된 아이디, 비번 텍스트 값을 state 로 저장 해주는 함수
   handleIdInput = event => {
     const { id, pw } = this.state;
     const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
+    // validation process 를 handleIdInput 함수에 합쳐줬음
     id.includes('@') && pw.length >= 5
       ? this.setState({ isValid: true })
       : this.setState({ isValid: false });
@@ -55,9 +56,9 @@ class LoginHa extends React.Component {
                   <input
                     type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
-                    onChange={this.handleIdInput}
                     name="id"
                     value={id}
+                    onChange={this.handleIdInput}
                   />
                 </div>
                 <div className="input-wrap">
@@ -65,9 +66,9 @@ class LoginHa extends React.Component {
                   <input
                     type="password"
                     placeholder="비밀번호"
-                    onChange={this.handleIdInput}
                     name="pw"
                     value={pw}
+                    onChange={this.handleIdInput}
                   />
                 </div>
               </div>
@@ -84,7 +85,7 @@ class LoginHa extends React.Component {
                 </button>
               </div>
               <p>
-                <a>비밀번호를 잊어버리셨나요?</a>
+                <p>비밀번호를 잊어버리셨나요?</p>
               </p>
             </div>
           </div>
