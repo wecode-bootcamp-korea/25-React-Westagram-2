@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MainHa.scss';
-import '../../../styles/common.scss';
-import '../../../styles/reset.scss';
+import Comment from './Comment.js';
 
 class MainHa extends React.Component {
   constructor() {
@@ -32,6 +31,7 @@ class MainHa extends React.Component {
     }
   };*/
   render() {
+    const { myArray, comment } = this.state;
     return (
       <>
         <meta charSet="utf-8" />
@@ -144,13 +144,8 @@ class MainHa extends React.Component {
                     42분전
                   </p>
                   <div>
-                    {this.state.myArray.map(comment => {
-                      return (
-                        <div id="comment-insert">
-                          {comment.commentKey}
-                          {/*input 창 입력된 댓글 들어갈 슬롯*/}
-                        </div>
-                      );
+                    {myArray.map(comment => {
+                      return <Comment comments={comment.commentKey} />;
                     })}
                   </div>
                 </div>
@@ -165,11 +160,12 @@ class MainHa extends React.Component {
                     onKeyPress={event => {
                       if (event.key === 'Enter') {
                         this.uploadComment();
+                        /*if 문이 true 이면 함수가 바로 실행되서 () 를 써줘야되는건가..? */
                       }
                     }}
                     /*
                     onKeyPress={this.enterToUpload}*/
-                    value={this.state.comment}
+                    value={comment}
                   />
                   <button
                     id="button-id"

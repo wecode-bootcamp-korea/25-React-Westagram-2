@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import './LoginHa.scss';
-//import '../../../styles/common.scss';
-//import '../../../styles/reset.scss';
-//import {Link} from "react-router-dom";
 import { withRouter } from 'react-router-dom';
+import './LoginHa.scss';
 
 class LoginHa extends React.Component {
   constructor() {
@@ -25,7 +22,7 @@ class LoginHa extends React.Component {
     this.setState({
       [name]: value,
     });
-    id.includes('@') && pw.length >= 4
+    id.includes('@') && pw.length >= 5
       ? this.setState({ isValid: true })
       : this.setState({ isValid: false });
   };
