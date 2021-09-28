@@ -9,7 +9,7 @@
   border-radius: 6px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
 
-  .mypage-box-peak {
+  .peak {
     position: absolute;
     transform: rotate(45deg);
     top: -7px;
@@ -20,13 +20,13 @@
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
   }
 
-  .mypage-box-list {
+  .box {
     position: relative;
     border-radius: 6px;
     background-color: white;
   }
 
-  .mypage-box-item {
+  .item {
     display: flex;
     align-items: center;
     height: 37px;

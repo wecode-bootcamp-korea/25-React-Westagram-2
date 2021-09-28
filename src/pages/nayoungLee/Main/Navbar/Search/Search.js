@@ -49,7 +49,7 @@ class Search extends React.Component {
     const { search, placeholder, searchList, isSearchBoxOpen } = this.state;
 
     return (
-      <div className="navbar-center">
+      <div className="center">
         <input
           className="search-bar"
           type="text"

@@ -20,30 +20,27 @@ class Navbar extends React.Component {
     return (
       <nav>
         <div className="navbar">
-          <div className="navbar-left">
-            <span className="navbar-logo navbar-icon">
+          <div className="left">
+            <span className="logo icon">
               <Link to="">
-                <i className="navbar-logo-image fab fa-instagram"></i>
-                <h2 className="navbar-logo-title">Westagram</h2>
+                <i className="logo-image fab fa-instagram"></i>
+                <h2 className="logo-title">Westagram</h2>
               </Link>
             </span>
           </div>
           <Search />
-          <div className="navbar-right">
-            <span className="navbar-icon">
+          <div className="right">
+            <span className="icon">
               <Link to="">
                 <i className="far fa-compass"></i>
               </Link>
             </span>
-            <span className="navbar-icon">
+            <span className="icon">
               <Link to="">
                 <i className="far fa-heart"></i>
               </Link>
             </span>
-            <button
-              className="navbar-icon mypage-button"
-              onClick={this.toggleMypage}
-            >
+            <button className="icon mypage-button" onClick={this.toggleMypage}>
               <img alt="내 프로필 사진" src="/images/nayoungLee/망붕배경.jpg" />
             </button>
             <Mypage isMypageOpen={this.state.isMypageOpen} />
