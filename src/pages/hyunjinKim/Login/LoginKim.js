@@ -12,13 +12,10 @@ class LoginKim extends Component {
   }
 
   handleInput = e => {
-    console.log('sisisisi');
     const { value, name } = e.target;
     this.setState({
       [name]: value,
     });
-
-    console.log(e.target.name);
   };
 
   goToMain = () => {

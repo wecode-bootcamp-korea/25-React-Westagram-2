@@ -24,11 +24,12 @@ class Nav extends PureComponent {
               src=" https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
             />
             <img
-              alr="profile"
+              alt="profile"
               src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
             />
             <div className="menu-user-pic">
               <img
+                alt="userImagepicture"
                 className="menu-profile"
                 src="/images/hyunjinKim/profile.jpeg"
               />
