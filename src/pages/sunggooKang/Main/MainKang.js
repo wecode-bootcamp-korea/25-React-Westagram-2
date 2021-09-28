@@ -1,5 +1,7 @@
 import React from 'react';
 import './MainKang.scss';
+import Comment from './Comment';
+import './comment.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -111,26 +113,26 @@ class MainKang extends React.Component {
 
               <div className="timeLimit">30분 전</div>
 
-              <ul styel={{ width: '100%' }} id="ul"></ul>
+              <ul style={{ width: '100%' }} id="ul"></ul>
               <form
                 className="delete"
                 id="formSubmit"
                 style={{ width: '100%' }}
               >
-                <input
+                <div>
+                  <Comment />
+                </div>
+
+                {/* <input
                   type="text"
                   className="form-control"
                   style={{ border: '1px solid black' }}
                   id="input"
                 />
-                <button
-                  type="submit"
-                  id="button"
-                  style={{ opacity: '0.8' }}
-                  disabled="true"
-                >
+
+                <button id="button" style={{ opacity: '0.8' }} disabled="true">
                   게시
-                </button>
+                </button> */}
               </form>
             </article>
           </div>

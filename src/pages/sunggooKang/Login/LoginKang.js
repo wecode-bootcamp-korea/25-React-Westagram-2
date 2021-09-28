@@ -29,6 +29,7 @@ class LoginKang extends React.Component {
   };
 
   gotoMain = () => {
+    // 왜 엔터를 한건데 로그인이 된거지????
     this.state.id.includes('@') && this.state.pw.length >= 5
       ? this.props.history.push('./mainkang')
       : alert('다시입력하세요');

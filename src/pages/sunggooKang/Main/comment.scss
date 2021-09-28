@@ -1,0 +1,18 @@
+.Comment {
+  .commentBtn {
+    display: flex;
+
+    .commentBox {
+      border: 1px solid black;
+      width: 350px;
+    }
+  }
+  .textbox,
+  li {
+    padding: 3px 0px 5px 0px;
+  }
+
+  button {
+    width: 70px;
+  }
+}
