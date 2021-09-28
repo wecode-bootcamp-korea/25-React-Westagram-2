@@ -32,7 +32,6 @@ class Comment extends React.Component {
   pressEnter = e => {
     // e.preventDefault();
     if (e.key === 'Enter' && this.state.newReply) {
-      // e.key === 'Enter' 조건은 안달아도 작동이 되네????????????? >> 아무거나 타이핑 해도 이제 계속 add됨
       this.add();
       e.target.value = '';
     }

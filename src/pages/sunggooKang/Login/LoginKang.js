@@ -9,33 +9,48 @@ class LoginKang extends React.Component {
     this.state = {
       id: '',
       pw: '',
+      isIdValidation: false,
+      isPwValidation: false,
+      isBtnOn: false,
       replies: [],
     };
   }
 
   handleInput = e => {
+    const { name, value } = e.target;
     // 1.if(id)
-    if (e.target.name === 'id') {
-      this.setState({
-        id: e.target.value,
-      });
+    if (name === 'id') {
+      this.setState(
+        {
+          id: value,
+          isIdValidation: value,
+        }
+        // this.toggleBtn
+      );
     } else {
-      this.setState({
-        pw: e.target.value,
-      });
+      this.setState(
+        {
+          pw: value,
+          isPwValidation: value,
+        }
+        // this.toggleBtn
+      );
     }
 
     // 2.  [] -> key dynamic id or pw
   };
 
   gotoMain = () => {
+    const { id, pw } = this.state;
     // 왜 엔터를 한건데 로그인이 된거지????
-    this.state.id.includes('@') && this.state.pw.length >= 5
+    id.includes('@') && pw.length >= 5
       ? this.props.history.push('./mainkang')
       : alert('다시입력하세요');
   };
 
   render() {
+    const { id, pw } = this.state;
+    const isBtnOn = this.state.id.includes('@') && this.state.pw.length >= 5;
     return (
       <div className="Login">
         <form id="login_form" className="container">
@@ -46,7 +61,7 @@ class LoginKang extends React.Component {
             className="id"
             placeholder="전화번호, 사용자 이름 또는 이메일"
             onChange={this.handleInput}
-            value={this.state.id}
+            value={id}
           />
           <input
             name="pw"
@@ -54,21 +69,15 @@ class LoginKang extends React.Component {
             className="pw"
             placeholder="비밀번호"
             onChange={this.handleInput}
-            value={this.state.pw}
+            value={pw}
           />
           {/* <Link to="/MainKang"> */}
           <button
             className={
-              this.state.id.includes('@') && this.state.pw.length >= 5
-                ? 'changeColor login center'
-                : 'normalColor login center'
+              isBtnOn ? 'changeColor login center' : 'normalColor login center'
             }
             // disabled 기능 구현 실패
-            // disabled={
-            //   this.state.id.includes('@') && this.state.pw.length >= 5
-            //     ? 'false'
-            //     : 'true'
-            // }
+            disabled={isBtnOn ? false : true}
             onClick={this.gotoMain}
           >
             로그인

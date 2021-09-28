@@ -99,7 +99,7 @@ class MainKang extends React.Component {
                   src="\images\sunggooKang\coffee2.jpg"
                 />
                 <span className="friendSentence">
-                  <span className="friend">Hongil</span>님{' '}
+                  <span className="friend">Hongil</span>님
                   <span className="friend">외 4명</span>이 좋아합니다.
                 </span>
               </div>
@@ -114,25 +114,8 @@ class MainKang extends React.Component {
               <div className="timeLimit">30분 전</div>
 
               <ul style={{ width: '100%' }} id="ul"></ul>
-              <form
-                className="delete"
-                id="formSubmit"
-                style={{ width: '100%' }}
-              >
-                <div>
-                  <Comment />
-                </div>
-
-                {/* <input
-                  type="text"
-                  className="form-control"
-                  style={{ border: '1px solid black' }}
-                  id="input"
-                />
-
-                <button id="button" style={{ opacity: '0.8' }} disabled="true">
-                  게시
-                </button> */}
+              <form className="delete" id="formSubmit">
+                <Comment />
               </form>
             </article>
           </div>
