@@ -15,7 +15,7 @@
     }
 
     .me-nametag {
-      margin-left: 16px !important;
+      margin-left: 16px;
     }
   }
 
@@ -26,5 +26,11 @@
     font-size: 12px;
     font-weight: bold;
     color: #0095f6;
+  }
+
+  @media all and (max-width: 934px) {
+    & {
+      display: none;
+    }
   }
 }

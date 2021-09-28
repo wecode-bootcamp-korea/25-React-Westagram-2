@@ -18,7 +18,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav>
+      <nav className="nav">
         <div className="navbar">
           <div className="left">
             <span className="logo icon">

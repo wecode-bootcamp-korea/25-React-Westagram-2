@@ -50,24 +50,19 @@
   }
 
   main {
+    display: flex;
     max-width: 935px;
     margin: 0 auto;
     padding-top: 84px;
-  }
 
-  .feeds {
-    float: left;
-    max-width: 614px;
+    .feeds {
+      max-width: 614px;
+    }
   }
 
   @media all and (max-width: 934px) {
     .feeds {
-      float: none;
       margin: 0 auto;
-    }
-
-    .main-right {
-      display: none;
     }
   }
 

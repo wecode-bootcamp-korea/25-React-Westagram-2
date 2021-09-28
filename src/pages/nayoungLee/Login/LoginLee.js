@@ -60,19 +60,22 @@ class LoginLee extends React.Component {
   render() {
     const { isBtnOn } = this.state;
 
+    console.log(this.state);
     return (
       <div className="LoginLee">
         <h1 className="logo">Westagram</h1>
         <div className="form">
           <input
             type="text"
+            name="id"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={this.handleIdInput}
+            onChange={this.handleInput}
           />
           <input
             type="password"
+            name="pw"
             placeholder="비밀번호"
-            onChange={this.handlePwInput}
+            onChange={this.handleInput}
           />
           <button
             className={isBtnOn ? 'active' : ''}
