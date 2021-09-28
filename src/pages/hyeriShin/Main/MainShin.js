@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './MainShin.scss';
 import '../../../styles/reset.scss';
 import Reply from './Reply';
+import COMPANY_INFO from './Company_info';
 
 class MainShin extends Component {
   constructor(props) {
@@ -38,8 +39,8 @@ class MainShin extends Component {
   };
 
   render() {
-    const { comment, commnetList, reply } = this.state;
-    const { uesrsCommentState, uesrsCommentAdd } = this;
+    const { comment, commentList, reply } = this.state;
+
     return (
       <div className="MainBody">
         <header>
@@ -124,7 +125,7 @@ class MainShin extends Component {
                   </div>
 
                   <div className="feeds_comment_uesrs">
-                    {commnetList.map(item => {
+                    {commentList.map(item => {
                       return (
                         <Reply
                           key={item.id}
@@ -167,14 +168,14 @@ class MainShin extends Component {
                 <form>
                   <input
                     className="comment_input_txt"
-                    onChange={uesrsCommentState}
+                    onChange={this.uesrsCommentState}
                     value={reply}
                     type="text"
                     placeholder="댓글 달기..."
                   />
                   <button
                     className="comment_btn"
-                    onClick={uesrsCommentAdd}
+                    onClick={this.uesrsCommentAdd}
                     type="submit"
                   >
                     게시
@@ -300,39 +301,13 @@ class MainShin extends Component {
               <div className="company_info">
                 <address>
                   <ul>
-                    <li>
-                      <span>Tomstagram 정보</span>
-                    </li>
-                    <li>
-                      <span>지원</span>
-                    </li>
-                    <li>
-                      <span>홍보 센터</span>
-                    </li>
-                    <li>
-                      <span>API</span>
-                    </li>
-                    <li>
-                      <span>채용 정보</span>
-                    </li>
-                    <li>
-                      <span>개인정보처리방침</span>
-                    </li>
-                    <li>
-                      <span>약관</span>
-                    </li>
-                    <li>
-                      <span>디렉터리</span>
-                    </li>
-                    <li>
-                      <span>프로필</span>
-                    </li>
-                    <li>
-                      <span>해시태그</span>
-                    </li>
-                    <li>
-                      <span>언어</span>
-                    </li>
+                    {COMPANY_INFO.map(listData => {
+                      return (
+                        <li key={listData.id}>
+                          <span>{listData.content}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </address>
                 <p>&#x00A9; 2021 TOMSTAGRAM FROM SHINHYERI</p>
