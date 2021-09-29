@@ -7,11 +7,28 @@ class LoginShin extends Component {
     this.state = {
       idInput: '',
       pwInput: '',
+      name: 'jetom',
+      phone_number: '010-0408-1111',
+      gender: 'Male',
     };
   }
 
-  goToMainShin = () => {
-    this.props.history.push('/MainShin');
+  goToMainShin = e => {
+    e.preventDefault();
+
+    fetch('http://10.58.3.243:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.idInput,
+        password: this.state.pwInput,
+        name: this.state.name,
+        phone_number: this.state.phone_number,
+        gender: this.state.gender,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과: ', result));
+    // this.props.history.push('/MainShin');
   };
 
   handleInput = e => {
@@ -38,7 +55,7 @@ class LoginShin extends Component {
           <section>
             <article>
               <div className="loginBox">
-                <form>
+                <form onSubmit={goToMainShin}>
                   <input
                     name="idInput"
                     onChange={handleInput}
@@ -57,7 +74,7 @@ class LoginShin extends Component {
                   <button
                     className={isLoginBtn ? 'loginBtnOn' : 'loginBtnOff'}
                     disabled={!isLoginBtn}
-                    onClick={goToMainShin}
+                    // onClick={goToMainShin}
                   >
                     로그인
                   </button>
