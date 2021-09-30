@@ -2,11 +2,15 @@
   {
     "id": 1,
     "feedsUserId": "lotte_world",
-    "feedsname": "ChiChi"
+    "feedsName": "ChiChi",
+    "feedsImg": "/images/hyeriShin/feed_main_img2.png",
+    "feedsComment": "아트란티스가 제일 재밌어요 🤩"
   },
   {
     "id": 2,
     "feedsUserId": "happy_loopy",
-    "feedsname": "Shinloopy"
+    "feedsName": "Shinloopy",
+    "feedsImg": "/images/hyeriShin/feed_main_img3.png",
+    "feedsComment": "춘식이 라이벌 루피 🤪"
   }
 ]

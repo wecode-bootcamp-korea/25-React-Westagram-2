@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Reply from './Reply';
-import COMPANY_INFO from './Company_info';
+import COMPANY_INFO from '../../../components/Company_info';
 import './MainShin.scss';
 
 class MainShin extends Component {
@@ -109,9 +109,8 @@ class MainShin extends Component {
                         alt="feeds_commnet_small_img"
                       />
                       <p>
-                        <span className="feeds_comment_uesrs_id">Jetom</span>님{' '}
-                        <span className="feeds_comment_uesrs_id">외 999명</span>
-                        이 좋아합니다.
+                        <strong>Jetom</strong>님 외<strong> 999명</strong>이
+                        좋아합니다.
                       </p>
                     </div>
                     <div className="feeds_comment_uesrs">
