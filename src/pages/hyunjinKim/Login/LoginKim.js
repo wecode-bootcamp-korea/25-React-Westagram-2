@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './LoginKim.scss';
 
 class LoginKim extends Component {
   constructor() {
     super();
     this.state = {
-      id: '',
-      pw: '',
+      email: '',
+      password: '',
     };
   }
 
@@ -18,17 +17,38 @@ class LoginKim extends Component {
     });
   };
 
+  isValidIdAndPassword = (email, password) => {
+    return !(this.state.email.includes('@') && this.state.password.length > 5);
+  };
+
+  login = () => {
+    fetch('http://10.58.6.202:8000/users/login/', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'INVALID_USER') {
+          alert('비밀번호가 올바르지 않습니다!');
+        } else {
+          alert('로그인 성공!');
+        }
+      });
+  };
+
   goToMain = () => {
     this.props.history.push('/MainKim');
   };
 
-  render() {
-    const isValidIdAndPassword = (id, pw) => {
-      return !(
-        this.state.id.includes('@') === true && this.state.pw.length > 5
-      );
-    };
+  handleLogin = () => {
+    this.login();
+    this.goToMain();
+  };
 
+  render() {
     return (
       <div className="Login">
         <div className="wrapper">
@@ -38,23 +58,26 @@ class LoginKim extends Component {
           <main>
             <input
               id="user-id"
-              name="id"
+              name="email"
               type="text"
               placeholder="전화번호,사용자 이름 또는 이메일"
               onChange={this.handleInput}
             />
             <input
               id="user-password"
-              name="pw"
+              name="password"
               type="password"
               placeholder="비밀번호"
               onChange={this.handleInput}
             />
-            <Link to="/MainKim">
-              <button id="login" disabled={isValidIdAndPassword()}>
-                로그인
-              </button>
-            </Link>
+
+            <button
+              id="login"
+              onClick={this.handleLogin}
+              disabled={this.isValidIdAndPassword()}
+            >
+              로그인
+            </button>
           </main>
 
           <footer>

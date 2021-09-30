@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './MainKim.scss';
-import '../../../styles/common.scss';
-import '../../../styles/reset.scss';
 import Aside from './Aside/Aside';
 import Nav from './Nav/Nav';
 import '@fortawesome/fontawesome-free/js/all.js';
 import Feeds from './Feeds/Feeds';
+import './MainKim.scss';
+import '../../../styles/common.scss';
+import '../../../styles/reset.scss';
 
 class MainKim extends Component {
   constructor() {
