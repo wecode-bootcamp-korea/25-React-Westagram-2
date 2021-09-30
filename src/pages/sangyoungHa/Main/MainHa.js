@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Comment from './Comment.js';
+import CommentList from './CommentList';
 import './MainHa.scss';
 
 class MainHa extends React.Component {
@@ -8,6 +8,7 @@ class MainHa extends React.Component {
     this.state = {
       comment: '',
       myArray: [],
+      commentList: [],
     };
   }
   // 댓글 입력 내용을 state 로 저장해주는 함수
@@ -23,6 +24,18 @@ class MainHa extends React.Component {
     myArray.unshift({ commentKey: comment });
     this.setState({ comment: '' });
   };
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          myArray: data,
+        });
+      });
+  }
   /* 엔터키 입력시 댓글이 게시되는 함수를 따로 작성했으나, '엔터키 입력시' 라는 조건을 아예 인풋태그에 주고
      상단의 uploadComment 함수를 재사용 해주었는데 어떤게 더 좋은 방식일까????
   enterToUpload = event => {
@@ -33,7 +46,7 @@ class MainHa extends React.Component {
     }
   };*/
   render() {
-    const { myArray, comment } = this.state;
+    const { myArray } = this.state;
 
     return (
       <>
@@ -141,38 +154,26 @@ class MainHa extends React.Component {
                   <p>
                     <strong>sangchu_daddy</strong>&nbsp; Go fetch me a stick bro
                   </p>
-                  <p className="gray-text">42분전</p>
+                  <p className="gray-text">59분전</p>
                   <div>
+                    {/*목데이터 맵핑 div */}
                     {myArray.map(comment => {
-                      return <Comment comments={comment.commentKey} />;
-                      <div></div>;
+                      return (
+                        <ul>
+                          <br />
+                          <div>
+                            <strong>{comment.userName}</strong>
+                            {comment.content}
+                          </div>
+                          <br />
+                          <span className="gray-text">{comment.timeAgo}</span>
+                        </ul>
+                      );
                     })}
                   </div>
-                </div>
-                <div className="comment-bar">
-                  {/*댓글 인풋 바를 감싸주는 comment-bar div, descendant of feed-bottom div */}
-                  <input
-                    className="comment-input"
-                    type="text"
-                    placeholder="댓글달기.... "
-                    name="comment"
-                    value={comment}
-                    onChange={this.commentSave}
-                    onKeyPress={event => {
-                      if (event.key === 'Enter') {
-                        this.uploadComment();
-                        //if 문 진입하면 함수가 바로 실행되서 () 를 써줘야되는건가..?
-                      }
-                    }}
-                    //onKeyPress={this.enterToUpload}
-                  />
-                  <button
-                    id="button-id"
-                    className="display-button"
-                    onClick={this.uploadComment}
-                  >
-                    게시
-                  </button>
+                  <div>
+                    <CommentList />
+                  </div>
                 </div>
               </div>
             </div>

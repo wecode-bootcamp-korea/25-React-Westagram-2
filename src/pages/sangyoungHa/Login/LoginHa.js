@@ -9,6 +9,9 @@ class LoginHa extends React.Component {
       id: '',
       pw: '',
       isValid: false,
+      //name: 'hasy0407@gmail.com',
+      //phone_number: '010-7138-5604',
+      //gender: 'Male',
     };
   }
   //로그인 버튼 클릭시 MainHa 페이지로 가게 해주는 함수
@@ -27,6 +30,20 @@ class LoginHa extends React.Component {
       ? this.setState({ isValid: true })
       : this.setState({ isValid: false });
   };
+  // handleClick = () => {
+  //   fetch('http://10.58.3.243:8000/users/login', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: this.state.id,
+  //       password: this.state.pw,
+  //       // name: this.state.name,
+  //       // phone_number: this.state.phone_number,
+  //       // gender: this.state.gender,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => console.log('결과: ', result));
+  // };
 
   render() {
     const { id, pw, isValid } = this.state;
@@ -80,6 +97,7 @@ class LoginHa extends React.Component {
                 <button
                   className={isValid ? 'validated' : 'unvalidated'}
                   onClick={this.goToMain}
+                  //onClick={\}
                 >
                   로그인
                 </button>
