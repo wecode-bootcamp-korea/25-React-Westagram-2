@@ -13,6 +13,67 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 class MainKang extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      // 초기값 세팅, this.state가 많을 순 없다.
+      commentValue: '', // 새롭게 들어온 값들 입력
+      commentList: [],
+      newComment: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json()) // res.json()이 data로 들어감
+      .then(data => {
+        // console.log(data);
+        this.setState({
+          commentList: data,
+        });
+      });
+  }
+
+  textChange = e => {
+    // e.preventDefault();
+    this.setState({
+      commentValue: e.target.value,
+    });
+  };
+
+  add = () => {
+    // let newComment = {
+
+    // };
+    let arr = this.state.newComment;
+    arr.push({
+      text: this.state.commentValue,
+    });
+    //commentList: { ...commentList },
+    this.setState({
+      newComment: arr,
+      commentValue: '',
+    });
+  };
+
+  pressEnter = e => {
+    // e.preventDefault();
+    if (e.key === 'Enter' && this.state.commentValue) {
+      this.add();
+      e.target.value = '';
+    }
+  };
+
+  isClicked = e => {
+    e.preventDefault();
+    if (this.state.commentValue) {
+      this.add();
+      e.target.value = '';
+    }
+  };
+
   render() {
     return (
       <div className="Main">
@@ -105,7 +166,6 @@ class MainKang extends React.Component {
               </div>
 
               <div id="lines2" className="lines2">
-                {' '}
                 <span className="lines2lines">Wecode_bootcamp</span>
                 123항커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커피커
               </div>
@@ -115,7 +175,15 @@ class MainKang extends React.Component {
 
               <ul style={{ width: '100%' }} id="ul"></ul>
               <form className="delete" id="formSubmit">
-                <Comments />
+                <Comments
+                  textChange={this.textChange}
+                  add={this.add}
+                  pressEnter={this.pressEnter}
+                  isClicked={this.isClicked}
+                  commentList={this.state.commentList}
+                  newComment={this.state.newComment}
+                  commentValue={this.state.commentValue}
+                />
               </form>
             </article>
           </div>

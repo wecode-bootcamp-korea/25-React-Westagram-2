@@ -2,10 +2,15 @@ import React from 'react';
 
 class Comment extends React.Component {
   render() {
-    console.log('comment', this.props.comment);
-
-    return <li>kang: {this.props.comment.text}</li>;
+    // console.log(this.props.newComment);
+    return (
+      <>
+        {this.props.newComment.map((el, idx) => {
+          return <li key={idx}>Kang: {el.text} </li>;
+        })}
+        {/* <li>{this.props.newComment}</li> */}
+      </>
+    );
   }
 }
-
 export default Comment;
