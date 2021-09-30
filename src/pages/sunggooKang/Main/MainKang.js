@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainKang.scss';
-import Comment from './Comment';
-import './comment.scss';
+import Comments from './Comments';
+import './Comments.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -115,7 +115,7 @@ class MainKang extends React.Component {
 
               <ul style={{ width: '100%' }} id="ul"></ul>
               <form className="delete" id="formSubmit">
-                <Comment />
+                <Comments />
               </form>
             </article>
           </div>

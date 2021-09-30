@@ -2,6 +2,7 @@ import React from 'react';
 import './LoginKang.scss';
 // import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+// import { restElement } from '@babel/types';
 
 class LoginKang extends React.Component {
   constructor() {
@@ -9,8 +10,6 @@ class LoginKang extends React.Component {
     this.state = {
       id: '',
       pw: '',
-      isIdValidation: false,
-      isPwValidation: false,
       isBtnOn: false,
       replies: [],
     };
@@ -18,39 +17,65 @@ class LoginKang extends React.Component {
 
   handleInput = e => {
     const { name, value } = e.target;
-    // 1.if(id)
-    if (name === 'id') {
-      this.setState(
-        {
-          id: value,
-          isIdValidation: value,
-        }
-        // this.toggleBtn
-      );
-    } else {
-      this.setState(
-        {
-          pw: value,
-          isPwValidation: value,
-        }
-        // this.toggleBtn
-      );
-    }
+    // const { id, pw } = this.state;
 
-    // 2.  [] -> key dynamic id or pw
+    if (name === 'id') {
+      this.setState({
+        id: value,
+      });
+    } else {
+      this.setState({
+        pw: value,
+      });
+    }
   };
 
+  // api주소 받고
+  // body안의 아이디,비번의 키값 정하고,
+  // then...
   gotoMain = () => {
-    const { id, pw } = this.state;
-    // 왜 엔터를 한건데 로그인이 된거지????
-    id.includes('@') && pw.length >= 5
-      ? this.props.history.push('./mainkang')
-      : alert('다시입력하세요');
+    const isValid = this.state.id.includes('@') && this.state.pw.length >= 8;
+    if (!isValid) {
+      // 조건 맞지 않으면 그냥 함수 나가버려라
+      return;
+    }
+    // 조건 맞으면 아래코드를 시행하라
+
+    // isValid
+    //   ? this.props.history.push('./mainkang')
+    //   : this.props.history.push('./loginkang');
+
+    fetch('http://10.58.5.94:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw,
+        // name: this.state.pw, // 왜 안될까
+        // other_info: this.state.pw,
+        // phone_number: this.state.pw,
+      }),
+    }).then(response => {
+      response.json();
+      console.log(response);
+      this.props.history.push('./mainkang');
+    });
+
+    // .then(result => {
+    //   if (result.MESSAGE === 'EMAIL_ALREADY_EXISTS') {
+    //     console.log('결과 : ', result);
+    //     alert('이미 존재하는 아이디입니다.');
+    //   } else if (result.MESSAGE === 'SUCCESS') {
+    //     console.log('결과 : ', result);
+    //     alert('성공!!');
+    //   }
+
+    //   //
+    // });
   };
 
   render() {
     const { id, pw } = this.state;
-    const isBtnOn = this.state.id.includes('@') && this.state.pw.length >= 5;
+    const isBtnOn = this.state.id.includes('@') && this.state.pw.length >= 8;
     return (
       <div className="Login">
         <form id="login_form" className="container">
@@ -71,18 +96,19 @@ class LoginKang extends React.Component {
             onChange={this.handleInput}
             value={pw}
           />
-          {/* <Link to="/MainKang"> */}
+
           <button
             className={
               isBtnOn ? 'changeColor login center' : 'normalColor login center'
             }
             // disabled 기능 구현 실패
-            disabled={isBtnOn ? false : true}
-            onClick={this.gotoMain}
+            // disabled={!isBtnOn} // 감사
+            type="button"
+            onClick={this.gotoMain} // 여기서 fetch함수를 작성
           >
             로그인
           </button>
-          {/* </Link> */}
+
           <div className="center pwFind">비밀번호를 잊으셨나요?</div>
         </form>
       </div>
