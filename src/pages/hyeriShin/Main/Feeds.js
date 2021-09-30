@@ -1,21 +1,47 @@
 import React, { Component } from 'react';
 
 class Feeds extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      reply: '',
+      comment: [],
+    };
+  }
+
+  uesrsCommentState = e => {
+    this.setState({
+      reply: e.target.value,
+    });
+  };
+
+  uesrsCommentAdd = e => {
+    e.preventDefault();
+    this.setState({
+      comment: this.state.comment.concat(this.state.reply),
+      reply: '',
+    });
+  };
+
   render() {
+    const { reply, comment } = this.state;
+    const { feedsUserId, feedsName, feedsImg, feedsComment } = this.props;
+    const { uesrsCommentAdd, uesrsCommentState } = this;
     return (
       <div className="feeds">
         <div className="feeds_users">
           <div className="feeds_users_info">
             <img src="/images/hyeriShin/feed_user.jpeg" alt="feed_user_img" />
             <div className="feeds_users_info_txt">
-              <p className="feeds_users_id">{this.props.feedsUserId}</p>
-              <p>{this.props.feedsName}</p>
+              <p className="feeds_users_id">{feedsUserId}</p>
+              <p>{feedsName}</p>
             </div>
           </div>
           <i className="fas fa-ellipsis-h"></i>
         </div>
         <div className="feeds_main_img">
-          <img src={this.props.feedsImg} alt="feeds_main_img" />
+          <img src={feedsImg} alt="feeds_main_img" />
         </div>
         <div className="feeds_info">
           <div className="feeds_icons">
@@ -32,25 +58,16 @@ class Feeds extends Component {
                 alt="feeds_commnet_small_img"
               />
               <p>
-                <span className="feeds_comment_uesrs_id">Jetom</span>님
-                <span className="feeds_comment_uesrs_id">외 999명</span>이
-                좋아합니다.
+                <strong>Jetom</strong>님 외<strong> 999명</strong>이 좋아합니다.
               </p>
             </div>
             <div className="feeds_comment_uesrs">
               <p>
-                <span className="feeds_comment_uesrs_id">
-                  {this.props.feedsUserId}
-                </span>
-                <span>{this.props.feedsComment}</span>
+                <span className="feeds_comment_uesrs_id">{feedsUserId}</span>
+                <span>{feedsComment}</span>
               </p>
-            </div>
-
-            <div className="feeds_comment_uesrs">
-              {commentList.map(item => {
-                return (
-                  <Reply key={item.id} userId={item.userId} txt={item.txt} />
-                );
+              {comment.map((item, idx) => {
+                return <p key={idx}> {item} </p>;
               })}
             </div>
 
@@ -58,17 +75,17 @@ class Feeds extends Component {
           </div>
         </div>
         <div className="comment_input">
-          <form>
+          <form onSubmit={uesrsCommentAdd}>
             <input
               className="comment_input_txt"
-              onChange={this.uesrsCommentState}
+              onChange={uesrsCommentState}
               value={reply}
               type="text"
               placeholder="댓글 달기..."
             />
             <button
               className="comment_btn"
-              onClick={this.uesrsCommentAdd}
+              onClick={uesrsCommentAdd}
               type="submit"
             >
               게시

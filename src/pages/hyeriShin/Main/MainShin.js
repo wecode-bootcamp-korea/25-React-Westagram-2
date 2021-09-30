@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Reply from './Reply';
+import Feeds from './Feeds';
 import COMPANY_INFO from '../../../components/Company_info';
 import './MainShin.scss';
 
@@ -7,38 +8,23 @@ class MainShin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reply: '',
-      comment: [],
       commentList: [],
+      feedsList: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json')
+    fetch('http://localhost:3000/data/feedsData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          commentList: data,
+          feedsList: data,
         });
       });
   }
 
-  uesrsCommentState = e => {
-    this.setState({
-      reply: e.target.value,
-    });
-  };
-
-  uesrsCommentAdd = e => {
-    e.preventDefault();
-    this.setState({
-      comment: this.state.comment.concat(this.state.reply),
-      reply: '',
-    });
-  };
-
   render() {
-    const { comment, commentList, reply } = this.state;
+    const { feedsList } = this.state;
 
     return (
       <div className="MainBody">
@@ -74,113 +60,17 @@ class MainShin extends Component {
         <section>
           <article>
             <div className="main_container">
-              <div className="feeds">
-                <div className="feeds_users">
-                  <div className="feeds_users_info">
-                    <img
-                      src="/images/hyeriShin/feed_user.jpeg"
-                      alt="feed_user_img"
-                    />
-                    <div className="feeds_users_info_txt">
-                      <p className="feeds_users_id">jetom_loopy</p>
-                      <p>Shinhyeri</p>
-                    </div>
-                  </div>
-                  <i className="fas fa-ellipsis-h"></i>
-                </div>
-                <div className="feeds_main_img">
-                  <img
-                    src="/images/hyeriShin/feed_main_img.png"
-                    alt="eed_main_img.png"
+              {feedsList.map(item => {
+                return (
+                  <Feeds
+                    key={item.id}
+                    feedsUserId={item.feedsUserId}
+                    feedsName={item.feedsName}
+                    feedsImg={item.feedsImg}
+                    feedsComment={item.feedsComment}
                   />
-                </div>
-                <div className="feeds_info">
-                  <div className="feeds_icons">
-                    <i className="fas fa-heart icon_padding"></i>
-                    <i className="far fa-comment icon_padding"></i>
-                    <i className="far fa-share-square icon_padding"></i>
-
-                    <i className="far fa-bookmark"></i>
-                  </div>
-                  <div className="feeds_comment_box">
-                    <div className="like_uesrs">
-                      <img
-                        src="/images/hyeriShin/feed_comment_samll_img.jpeg"
-                        alt="feeds_commnet_small_img"
-                      />
-                      <p>
-                        <strong>Jetom</strong>님 외<strong> 999명</strong>이
-                        좋아합니다.
-                      </p>
-                    </div>
-                    <div className="feeds_comment_uesrs">
-                      <p>
-                        <span className="feeds_comment_uesrs_id">
-                          Jetom_love
-                        </span>
-                        <span>제톰이 귀엽지않나여?!!!</span>
-                        <span className="comment_see_more">더 보기</span>
-                      </p>
-                    </div>
-
-                    <div className="feeds_comment_uesrs">
-                      {commentList.map(item => {
-                        return (
-                          <Reply
-                            key={item.id}
-                            userId={item.userId}
-                            txt={item.txt}
-                          />
-                        );
-                      })}
-                    </div>
-
-                    <div className="feeds_comment_like_btn_box">
-                      <p>
-                        <span className="feeds_comment_uesrs_id">loopy_:3</span>
-                        <span> 5살 / 비숑 / 남자애기입니다!</span>
-                      </p>
-                      <p>
-                        <img
-                          className="like_btn"
-                          alt="like_btn"
-                          src="/images/hyeriShin/heart.png"
-                        />
-                      </p>
-                    </div>
-
-                    <div className="feeds_comment_uesrs">
-                      {comment.map((comment, index) => {
-                        return (
-                          <p key={index}>
-                            <span>{comment}</span>
-                          </p>
-                        );
-                      })}
-                    </div>
-
-                    <p className="feeds_comment_tiem">1분전</p>
-                  </div>
-                </div>
-                <div className="comment_input">
-                  <form>
-                    <input
-                      className="comment_input_txt"
-                      onChange={this.uesrsCommentState}
-                      value={reply}
-                      type="text"
-                      placeholder="댓글 달기..."
-                    />
-                    <button
-                      className="comment_btn"
-                      onClick={this.uesrsCommentAdd}
-                      type="submit"
-                    >
-                      게시
-                    </button>
-                  </form>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </article>
 
