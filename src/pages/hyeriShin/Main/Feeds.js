@@ -18,8 +18,9 @@ class Feeds extends Component {
 
   uesrsCommentAdd = e => {
     e.preventDefault();
+    const { comment, reply } = this.state;
     this.setState({
-      comment: this.state.comment.concat(this.state.reply),
+      comment: [...comment, reply],
       reply: '',
     });
   };
@@ -28,6 +29,7 @@ class Feeds extends Component {
     const { reply, comment } = this.state;
     const { feedsUserId, feedsName, feedsImg, feedsComment } = this.props;
     const { uesrsCommentAdd, uesrsCommentState } = this;
+
     return (
       <div className="feeds">
         <div className="feeds_users">

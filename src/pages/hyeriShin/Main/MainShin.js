@@ -8,7 +8,6 @@ class MainShin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentList: [],
       feedsList: [],
     };
   }
