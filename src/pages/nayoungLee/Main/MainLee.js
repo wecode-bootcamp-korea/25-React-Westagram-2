@@ -23,7 +23,7 @@ class MainLee extends React.Component {
   }
 
   upDownLikeNum = (feedId, isLike) => {
-    const { likeNum } = this.state.feedList[feedId];
+    const { likeNum } = this.state.feedList[feedId - 1];
 
     return isLike ? likeNum - 1 : likeNum + 1;
   };
@@ -61,7 +61,7 @@ class MainLee extends React.Component {
         if (feed.feedId !== feedId) return feed;
 
         const filterComment = comment => comment.commentId !== commentId;
-        const nextComments = feed.comment.filter(filterComment);
+        const nextComments = feed.commentList.filter(filterComment);
         return { ...feed, commentList: nextComments };
       }),
     });
@@ -95,7 +95,7 @@ class MainLee extends React.Component {
               ...feed,
               commentIdCounting: feed.commentIdCounting + 1,
               commentList: feed.commentList.concat({
-                commentId: feed.commentIdCounting,
+                commentId: feed.commentIdCounting + 1,
                 userId: 'nylee9621',
                 comment: comment,
                 isLike: false,

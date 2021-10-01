@@ -78,7 +78,7 @@ class Feed extends React.Component {
             </span>
           </div>
           <button className="option-button">
-            <i className="fas fa-ellipsis-h"></i>
+            <i className="fas fa-ellipsis-h" />
           </button>
         </header>
         <img alt="피드 사진" src="/images/nayoungLee/세븐틴.jpg" />
@@ -89,17 +89,17 @@ class Feed extends React.Component {
                 className="buttons heart-button"
                 onClick={() => toggleIsLike(feedId, isLike)}
               >
-                {isLike ? (
-                  <i className="fas fa-heart heart-button-click"></i>
-                ) : (
-                  <i className="far fa-heart"></i>
-                )}
+                <i
+                  className={`fa-heart ${
+                    isLike ? 'fas heart-button-click' : 'far'
+                  }`}
+                />
               </button>
               <button className="buttons">
-                <i className="far fa-comment"></i>
+                <i className="far fa-comment" />
               </button>
               <button className="buttons">
-                <i className="far fa-paper-plane"></i>
+                <i className="far fa-paper-plane" />
               </button>
             </div>
             <div>
@@ -107,11 +107,7 @@ class Feed extends React.Component {
                 className="buttons bookmark-button"
                 onClick={() => toggleIsBookmark(feedId)}
               >
-                {isBookmark ? (
-                  <i className="fas fa-bookmark"></i>
-                ) : (
-                  <i className="far fa-bookmark"></i>
-                )}
+                <i className={`fa-bookmark ${isBookmark ? 'fas' : 'far'}`} />
               </button>
             </div>
           </div>
@@ -138,7 +134,7 @@ class Feed extends React.Component {
         </div>
         <div className="my-reaction">
           <button className="buttons">
-            <i className="far fa-smile"></i>
+            <i className="far fa-smile" />
           </button>
           <textarea
             className="comment"
@@ -149,11 +145,7 @@ class Feed extends React.Component {
             onKeyPress={this.handlePressEnter}
           ></textarea>
           <button
-            className={
-              comment.replace(/(?:\r\n|\r|\n)/g, '')
-                ? 'active'
-                : 'submit-button'
-            }
+            className={comment.trim() ? 'active' : 'submit-button'}
             disabled={!comment}
             onClick={this.clickSubmitBtn}
           >

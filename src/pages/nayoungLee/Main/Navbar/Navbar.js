@@ -23,7 +23,7 @@ class Navbar extends React.Component {
           <div className="left">
             <span className="logo icon">
               <Link to="">
-                <i className="logo-image fab fa-instagram"></i>
+                <i className="logo-image fab fa-instagram" />
                 <h2 className="logo-title">Westagram</h2>
               </Link>
             </span>
@@ -32,12 +32,12 @@ class Navbar extends React.Component {
           <div className="right">
             <span className="icon">
               <Link to="">
-                <i className="far fa-compass"></i>
+                <i className="far fa-compass" />
               </Link>
             </span>
             <span className="icon">
               <Link to="">
-                <i className="far fa-heart"></i>
+                <i className="far fa-heart" />
               </Link>
             </span>
             <button className="icon mypage-button" onClick={this.toggleMypage}>

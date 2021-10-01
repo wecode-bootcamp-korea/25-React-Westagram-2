@@ -11,16 +11,20 @@ class Mypage extends React.Component {
         <div className="peak"></div>
         <div className="box">
           <Link to="" className="item">
-            <i className="far fa-user-circle"></i>프로필
+            <i className="far fa-user-circle" />
+            프로필
           </Link>
           <Link to="" className="item">
-            <i className="far fa-bookmark"></i>저장됨
+            <i className="far fa-bookmark" />
+            저장됨
           </Link>
           <Link to="" className="item">
-            <i className="fas fa-cog"></i>설정
+            <i className="fas fa-cog" />
+            설정
           </Link>
           <div className="item">
-            <i className="fas fa-sync-alt"></i>계정 전환
+            <i className="fas fa-sync-alt" />
+            계정 전환
           </div>
           <Link to="/LoginLee" className="item">
             로그아웃
