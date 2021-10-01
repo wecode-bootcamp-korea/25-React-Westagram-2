@@ -37,6 +37,12 @@
 
           .logo-image {
             margin-right: 22px;
+
+            @media all and (max-width: 500px) {
+              & {
+                display: none;
+              }
+            }
           }
 
           .logo-title {
@@ -45,6 +51,13 @@
             font-family: 'Lobster', cursive;
             font-size: 24px;
             font-weight: bold;
+
+            @media all and (max-width: 500px) {
+              & {
+                padding: 0;
+                border-left: none;
+              }
+            }
           }
         }
       }
@@ -65,17 +78,6 @@
 
     .show {
       display: block;
-    }
-  }
-
-  @media all and (max-width: 500px) {
-    .logo-image {
-      display: none;
-    }
-
-    .logo-title {
-      padding: 0 !important;
-      border-left: none !important;
     }
   }
 }
