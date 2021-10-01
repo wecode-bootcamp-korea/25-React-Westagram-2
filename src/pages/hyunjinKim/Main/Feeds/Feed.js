@@ -25,7 +25,6 @@ class Feed extends Component {
     const replys = this.state.replys.filter(item => item.id !== reply.id);
     this.setState({ replys });
   };
-
   handleAdd = replyInput => {
     const replys = [
       ...this.state.replys,
@@ -77,6 +76,7 @@ class Feed extends Component {
               replys={this.state.replys}
               onDelete={this.handleDelete}
               onAdd={this.handleAdd}
+              handleAddByEnter={this.handleAddByEnter}
             />
           </article>
         </div>

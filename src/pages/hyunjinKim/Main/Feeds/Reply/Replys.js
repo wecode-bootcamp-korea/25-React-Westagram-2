@@ -10,7 +10,6 @@ class Replys extends Component {
   handleAdd = replyInput => {
     this.props.onAdd(replyInput);
   };
-
   render() {
     return (
       <>
