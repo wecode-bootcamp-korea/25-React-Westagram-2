@@ -28,7 +28,7 @@ class Aside extends Component {
                 </li>
               );
             })}
-            <p className="moreInfo"> 2021 INSTAFRAM FROM FACEBOOK</p>
+            <p className="moreInfo"> 2021 INSTAGRAM FROM FACEBOOK</p>
           </ul>
         </div>
       </>
