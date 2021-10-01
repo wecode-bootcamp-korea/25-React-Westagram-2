@@ -1,0 +1,17 @@
+.Footer {
+  ul {
+    margin-bottom: 16px;
+    list-style: none;
+  }
+
+  span {
+    text-transform: uppercase;
+  }
+
+  li a,
+  span,
+  li::after {
+    font-size: 11px;
+    color: #c7c7c7;
+  }
+}

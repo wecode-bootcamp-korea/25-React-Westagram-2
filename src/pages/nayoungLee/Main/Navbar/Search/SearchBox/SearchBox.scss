@@ -1,0 +1,30 @@
+.SearchBox {
+  position: absolute;
+  top: 41px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  width: 375px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
+
+  .peak {
+    position: absolute;
+    transform: rotate(45deg);
+    top: -7px;
+    left: 182px;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
+  }
+
+  .list {
+    position: relative;
+    height: 362px;
+    padding-top: 12px;
+    border-radius: 6px;
+    background-color: white;
+    overflow-y: auto;
+  }
+}

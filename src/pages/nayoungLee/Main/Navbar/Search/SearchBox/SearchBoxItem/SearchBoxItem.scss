@@ -1,0 +1,15 @@
+@import '../../../Navbar.scss';
+
+.SearchBoxItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+  }
+
+  @include list-item-hover;
+}

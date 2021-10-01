@@ -1,0 +1,119 @@
+.Feed {
+  margin-bottom: 24px;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  background-color: white;
+
+  .profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 16px;
+
+    a {
+      width: 32px;
+      height: 32px;
+    }
+
+    .location {
+      font-size: 12px;
+    }
+
+    .option-button {
+      position: absolute;
+      right: 16px;
+    }
+  }
+
+  .reaction {
+    padding: 10px 16px;
+
+    .button-block {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+
+      .bookmark-button {
+        margin-right: 0;
+      }
+    }
+
+    .heart-button-click {
+      animation: heartBtnClick 0.3s 1 forwards;
+      color: rgb(237, 73, 86);
+    }
+
+    @keyframes heartBtnClick {
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .like-num {
+      margin-bottom: 8px;
+
+      a {
+        font-weight: bold;
+      }
+    }
+
+    .date {
+      font-size: 10px;
+      color: #8e8e8e;
+    }
+  }
+
+  .my-reaction {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 0 16px;
+    border-top: 1px solid #e6e6e6;
+
+    .comment {
+      display: flex;
+      flex-grow: 1;
+      max-height: 80px;
+      height: 24px;
+      border: none;
+      line-height: 18px;
+      resize: none;
+      overflow-y: auto;
+
+      &::placeholder {
+        color: #8e8e8e;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .submit-button {
+      color: #c4e1fb;
+      font-weight: bold;
+      cursor: default;
+    }
+    .active {
+      font-weight: bold;
+      color: #0095f6;
+      cursor: pointer;
+    }
+  }
+
+  .buttons {
+    margin-right: 16px;
+
+    i {
+      font-size: 24px;
+    }
+  }
+}
+
+.feeds img {
+  width: 100%;
+}

@@ -1,0 +1,36 @@
+.Aside {
+  position: fixed;
+  right: calc((100% - 935px) / 2);
+  max-width: 293px;
+  height: 100vh;
+
+  .me-profile {
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+
+    a {
+      width: 56px;
+      height: 56px;
+    }
+
+    .me-nametag {
+      margin-left: 16px;
+    }
+  }
+
+  .me-change-button,
+  .follow-button {
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #0095f6;
+  }
+
+  @media all and (max-width: 934px) {
+    & {
+      display: none;
+    }
+  }
+}
