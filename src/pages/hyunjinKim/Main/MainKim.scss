@@ -368,19 +368,25 @@
     .myprofle {
       display: flex;
     }
+    .user-location {
+      margin-left: 1px;
+      margin-top: 2px;
+      font-weight: normal;
+      font-size: 11px;
+      color: gray;
+    }
+    .user-id {
+      width: 100%;
+      margin-left: 1px;
+      font-weight: bold;
+      font-size: 12px;
+    }
   }
-
-  .recommand-user-location {
-    margin-left: 2px;
-    font-weight: normal;
-    font-size: 13px;
-  }
-
   .recommand-user-id {
     width: 100%;
-    margin-left: 5px;
+    margin-left: 4px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .recommend-title {
