@@ -14,16 +14,18 @@ class LoginShin extends Component {
   }
 
   goToMainShin = e => {
+    const { idInput, pwInput, name, phone_number, gender } = this.state;
+
     e.preventDefault();
 
     fetch('http://10.58.3.243:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.idInput,
-        password: this.state.pwInput,
-        name: this.state.name,
-        phone_number: this.state.phone_number,
-        gender: this.state.gender,
+        email: idInput,
+        password: pwInput,
+        name: name,
+        phone_number: phone_number,
+        gender: gender,
       }),
     })
       .then(response => response.json())
