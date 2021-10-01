@@ -34,11 +34,7 @@ class Feed extends React.Component {
   };
 
   handlePressEnter = e => {
-    if (
-      this.state.comment.replace(/(?:\r\n|\r|\n)/g, '') &&
-      e.key === 'Enter' &&
-      !e.shiftKey
-    ) {
+    if (this.state.comment.trim() && e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       this.clickSubmitBtn();
     }
