@@ -47,7 +47,7 @@ class LoginShin extends Component {
 
     return (
       <div className="loginBody">
-        <div className="cotainer">
+        <div className="container">
           <header>
             <h1 className="logo">
               Tomstagram <i className="fas fa-dog"></i>
@@ -61,7 +61,6 @@ class LoginShin extends Component {
                   <input
                     name="idInput"
                     onChange={handleInput}
-                    type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
                     className="loginInput info"
                   />
@@ -74,7 +73,7 @@ class LoginShin extends Component {
                   />
 
                   <button
-                    className={isLoginBtn ? 'loginBtnOn' : 'loginBtnOff'}
+                    className={isLoginBtn ? 'loginBtn on' : 'loginBtn off'}
                     disabled={!isLoginBtn}
                     // onClick={goToMainShin}
                   >
