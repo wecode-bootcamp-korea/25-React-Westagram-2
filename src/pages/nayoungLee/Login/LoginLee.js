@@ -52,9 +52,25 @@ class LoginLee extends React.Component {
     this.props.history.push('/mainLee');
   };
 
+  handleClickBtn = () => {
+    fetch('http://10.58.3.221:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({ email: this.state.id, password: this.state.pw }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.token) {
+          localStorage.setItem('token', res.token);
+          this.goToMain();
+        } else {
+          alert('로그인 실패');
+        }
+      });
+  };
+
   handlePressEnter = e => {
     if (e.key === 'Enter' && this.state.isBtnOn) {
-      this.goToMain();
+      this.handleClickBtn();
     }
   };
 
@@ -82,7 +98,7 @@ class LoginLee extends React.Component {
           <button
             className={isBtnOn ? 'active' : ''}
             disabled={!isBtnOn}
-            onClick={this.goToMain}
+            onClick={this.handleClickBtn}
           >
             로그인
           </button>
