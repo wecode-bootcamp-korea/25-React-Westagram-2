@@ -57,16 +57,13 @@ class MainLee extends React.Component {
 
   deleteComment = (feedId, commentId) => {
     this.setState({
-      feedList: this.state.feedList.map(feed =>
-        feed.feedId === feedId
-          ? {
-              ...feed,
-              commentList: feed.commentList.filter(
-                comment => comment.commentId !== commentId
-              ),
-            }
-          : feed
-      ),
+      feedList: this.state.feedList.map(feed => {
+        if (feed.feedId !== feedId) return feed;
+
+        const filterComment = comment => comment.commentId !== commentId;
+        const nextComments = feed.comment.filter(filterComment);
+        return { ...feed, commentList: nextComments };
+      }),
     });
   };
 
