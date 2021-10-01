@@ -13,16 +13,15 @@ class Replys extends Component {
   render() {
     return (
       <>
-        <>
-          {this.props.replys.map(reply => (
-            <Reply
-              key={reply.id}
-              reply={reply}
-              comment={reply.comment}
-              onDelete={this.handleDelete}
-            />
-          ))}
-        </>
+        {this.props.replys.map(reply => (
+          <Reply
+            key={reply.id}
+            reply={reply}
+            comment={reply.comment}
+            onDelete={this.handleDelete}
+          />
+        ))}
+
         <ReplyAddForm
           onAdd={this.handleAdd}
           hadleAddByEnter={this.props.hadleAddByEnter}

@@ -4,8 +4,6 @@ import Nav from './Nav/Nav';
 import '@fortawesome/fontawesome-free/js/all.js';
 import Feeds from './Feeds/Feeds';
 import './MainKim.scss';
-import '../../../styles/common.scss';
-import '../../../styles/reset.scss';
 
 class MainKim extends Component {
   constructor() {
@@ -17,9 +15,7 @@ class MainKim extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/feedData.json', {
-      method: 'GET',
-    })
+    fetch('/data/feedData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -27,15 +23,10 @@ class MainKim extends Component {
         });
       });
 
-    fetch('http://localhost:3000/data/recommandData.json', {
-      method: 'GET',
-    })
+    fetch('/data/recommandData.json')
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          ...this.state,
-          recommands: data,
-        });
+        this.setState({ recommands: data });
       });
   }
 

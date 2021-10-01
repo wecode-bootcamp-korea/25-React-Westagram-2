@@ -9,19 +9,6 @@
     text-decoration: none;
     color: lightgray;
   }
-  a:visited {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  a:focus {
-    text-decoration: none;
-  }
-  a:hover,
-  a:active {
-    text-decoration: none;
-  }
 
   input {
     width: 90%;
@@ -174,14 +161,13 @@
     padding-left: 5px;
   }
 
-  .main-right {
-    .user-location {
-      width: 100%;
-      padding-left: 5px;
-      font-size: 12px;
-      font-weight: normal;
-    }
+  .user-location {
+    width: 100%;
+    padding-left: 5px;
+    font-size: 12px;
+    font-weight: normal;
   }
+
   .profile-wrapper {
     overflow: hidden;
     border: 1px solid gray;
@@ -329,10 +315,9 @@
   }
   .instagram {
     position: fixed;
+    width: 250px;
+    margin-top: 400px;
     text-align: center;
-    width: 520px;
-    padding-left: 289px;
-    margin-top: 420px;
 
     p {
       padding-top: 40px;

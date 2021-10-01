@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Feed from './Feed';
 class Feeds extends Component {
   render() {

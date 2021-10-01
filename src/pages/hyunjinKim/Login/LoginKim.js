@@ -18,7 +18,7 @@ class LoginKim extends Component {
   };
 
   isValidIdAndPassword = (email, password) => {
-    return !(this.state.email.includes('@') && this.state.password.length > 5);
+    return !(email.includes('@') && password.length > 5);
   };
 
   login = () => {
@@ -49,6 +49,8 @@ class LoginKim extends Component {
   };
 
   render() {
+    const { email, password } = this.state;
+
     return (
       <div className="Login">
         <div className="wrapper">
@@ -74,7 +76,7 @@ class LoginKim extends Component {
             <button
               id="login"
               onClick={this.handleLogin}
-              disabled={this.isValidIdAndPassword()}
+              disabled={this.isValidIdAndPassword(email, password)}
             >
               로그인
             </button>
