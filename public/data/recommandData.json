@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "userId": "2arrr",
+    "src": "/images/hyunjinKim/hodu.jpeg",
+    "aboutme": "2arrr님이 팔로우합니다."
+  },
+  {
+    "id": 2,
+    "userId": "so5raa",
+    "src": "/images/hyunjinKim/ggongggong.jpeg",
+    "aboutme": "회원님을 위한 추천"
+  },
+  {
+    "id": 3,
+    "userId": "imdede",
+    "src": "/images/hyunjinKim/dede.jpeg",
+    "aboutme": "ys6595님이 팔로우합니다."
+  },
+  {
+    "id": 4,
+    "userId": "golden",
+    "src": "/images/hyunjinKim/golden.jpeg",
+    "aboutme": "회원님을 위한 추천"
+  },
+
+  {
+    "id": 5,
+    "userId": "mongsils",
+    "src": "/images/hyunjinKim/mongsils.jpeg",
+    "aboutme": "회원님을 위한 추천"
+  }
+]

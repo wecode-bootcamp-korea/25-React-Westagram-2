@@ -1,0 +1,71 @@
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 500px;
+    background-color: white;
+    border: lightgray 1px solid;
+    margin-bottom: 130px;
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  header {
+    margin: 80px 0px 50px 0px;
+    font-family: 'Lobster', cursive;
+    font-size: 55px;
+    font-weight: bold;
+  }
+
+  main {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 190px;
+    margin-bottom: 45px;
+  }
+
+  input {
+    height: 40px;
+    width: 320px;
+    margin-bottom: 10px;
+    border: solid 1px lightgray;
+    border-radius: 3px;
+    padding-left: 14px;
+    color: black;
+    background-color: #fafafa;
+    font-size: 15px;
+  }
+
+  button {
+    height: 40px;
+    width: 320px;
+    border: #0095f6;
+    border-radius: 7px;
+    margin-top: 21px;
+    background-color: #0095f6;
+    color: white;
+    font-size: 16px;
+    transition: all 0.2s ease-in;
+
+    &:disabled {
+      background-color: #c4e1fb;
+    }
+  }
+  link {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    position: relative;
+
+    font-size: 14px;
+  }
+}
