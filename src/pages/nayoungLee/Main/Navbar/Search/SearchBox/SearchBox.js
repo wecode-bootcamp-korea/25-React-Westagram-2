@@ -8,7 +8,7 @@ class SearchBox extends React.Component {
 
     return (
       <div className={`SearchBox ${isSearchBoxOpen ? 'show' : ''}`}>
-        <div className="peak"></div>
+        <div className="peak" />
         <div className="list">
           {searchList.map((item, idx) => (
             <SearchBoxItem key={idx} item={item} />
