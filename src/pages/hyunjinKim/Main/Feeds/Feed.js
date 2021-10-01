@@ -26,12 +26,22 @@ class Feed extends Component {
     this.setState({ replys });
   };
   handleAdd = replyInput => {
+    if (replyInput.trim() === '') {
+      return;
+    }
     const replys = [
       ...this.state.replys,
       { id: Date.now(), userId: '71summsernight', comment: replyInput },
     ];
     this.setState({ replys });
   };
+
+  handleAddByEnter = e => {
+    if (e.key === 'Enter') {
+      this.handleAdd();
+    }
+  };
+
   render() {
     const { nickname, userLocation, UserImage, subjectImage, content } =
       this.props.feed;

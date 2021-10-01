@@ -5,6 +5,24 @@
     outline: none;
   }
 
+  a {
+    text-decoration: none;
+    color: lightgray;
+  }
+  a:visited {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  a:focus {
+    text-decoration: none;
+  }
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
+
   input {
     width: 90%;
     height: 90%;
@@ -26,9 +44,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 900px;
+    width: 930px;
     padding: 0.5%;
-    margin-right: 10px;
   }
 
   .nav-left {
@@ -109,7 +126,7 @@
     justify-content: space-between;
     flex-direction: column;
     width: 555px;
-    margin-left: 25px;
+    margin-left: 0px;
   }
 
   .feeds {
@@ -201,8 +218,8 @@
   }
 
   .feed-subject img {
-    height: 500px;
-    width: 500px;
+    height: 450px;
+    width: 450px;
     overflow: hidden;
   }
 
@@ -306,9 +323,26 @@
   .main-right {
     display: flex;
     justify-content: right;
-    margin-right: 95px;
+    margin-right: 150px;
     margin-top: 110px;
     background-color: #fafafa;
+  }
+  .instagram {
+    position: fixed;
+    text-align: center;
+    width: 520px;
+    padding-left: 289px;
+    margin-top: 420px;
+
+    p {
+      padding-top: 40px;
+    }
+  }
+  .moreInfo {
+    display: inline-block;
+    font-size: 11px;
+    padding-right: 3px;
+    color: lightgray;
   }
 
   .comment-btn {

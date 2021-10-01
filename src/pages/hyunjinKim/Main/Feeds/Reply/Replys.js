@@ -23,7 +23,10 @@ class Replys extends Component {
             />
           ))}
         </>
-        <ReplyAddForm onAdd={this.handleAdd} />
+        <ReplyAddForm
+          onAdd={this.handleAdd}
+          hadleAddByEnter={this.props.hadleAddByEnter}
+        />
       </>
     );
   }
