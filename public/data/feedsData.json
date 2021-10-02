@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "feedsUserId": "jetom_loopy",
+    "feedsName": "Shinhyeri",
+    "feedsImg": "/images/hyeriShin/feed_main_img.png",
+    "feedsComment": "제톰이 귀엽지않나여?!!! 😍"
+  },
+  {
+    "id": 2,
+    "feedsUserId": "lotte_world",
+    "feedsName": "ChiChi",
+    "feedsImg": "/images/hyeriShin/feed_main_img2.png",
+    "feedsComment": "아트란티스가 제일 재밌어요 🤩"
+  },
+  {
+    "id": 3,
+    "feedsUserId": "happy_loopy",
+    "feedsName": "Shinloopy",
+    "feedsImg": "/images/hyeriShin/feed_main_img3.png",
+    "feedsComment": "춘식이 라이벌 루피 🤪"
+  }
+]
