@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Reply from './Reply';
 import Feeds from './Feeds';
+import StoryUsersInfo from './StoryUsersList';
 import COMPANY_INFO from '../../../components/Company_info';
 import './MainShin.scss';
 
@@ -9,21 +9,28 @@ class MainShin extends Component {
     super(props);
     this.state = {
       feedsList: [],
+      storyUsersList: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/feedsData.json')
+    fetch('/data/feedsData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
           feedsList: data,
         });
       });
+
+    fetch('/data/storyUserData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ storyUsersList: data });
+      });
   }
 
   render() {
-    const { feedsList } = this.state;
+    const { feedsList, storyUsersList } = this.state;
 
     return (
       <div className="MainBody">
@@ -93,54 +100,16 @@ class MainShin extends Component {
                     {/* <p><a href="#">모두보기</a></p> */}
                   </div>
                   <div className="story_users">
-                    <div className="story_users_info">
-                      <img
-                        src="/images/hyeriShin/story_users_info_img.png"
-                        alt="story_users_info_img"
-                      />
-                      <div className="story_users_info_txt">
-                        <p>Shinhyeri</p>
-                        <p>
-                          <span>16분전</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="story_users_info">
-                      <img
-                        src="/images/hyeriShin/story_users_info_img2.png"
-                        alt="story_users_info_img"
-                      />
-                      <div className="story_users_info_txt">
-                        <p>SoonE</p>
-                        <p>
-                          <span>30분전</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="story_users_info">
-                      <img
-                        src="/images/hyeriShin/story_users_info_img3.png"
-                        alt="story_users_info_img"
-                      />
-                      <div className="story_users_info_txt">
-                        <p>BaBa</p>
-                        <p>
-                          <span>45분전</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="story_users_info">
-                      <img
-                        src="/images/hyeriShin/story_users_info_img4.png"
-                        alt="story_users_info_img"
-                      />
-                      <div className="story_users_info_txt">
-                        <p>Hacho</p>
-                        <p>
-                          <span>1시간전</span>
-                        </p>
-                      </div>
-                    </div>
+                    {storyUsersList.map(item => {
+                      return (
+                        <StoryUsersInfo
+                          key={item.id}
+                          userImg={item.userImg}
+                          nickname={item.nickname}
+                          time={item.time}
+                        />
+                      );
+                    })}
                   </div>
                 </div>
               </div>

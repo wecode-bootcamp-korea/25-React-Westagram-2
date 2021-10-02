@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "userImg": "/images/hyeriShin/story_users_info_img.png",
+    "nickname": "Shinhyeri",
+    "time": "16분전"
+  },
+  {
+    "id": 2,
+    "userImg": "/images/hyeriShin/story_users_info_img2.png",
+    "nickname": "SoonE",
+    "time": "30분전"
+  },
+  {
+    "id": 3,
+    "userImg": "/images/hyeriShin/story_users_info_img3.png",
+    "nickname": "BaBa",
+    "time": "45분전"
+  },
+  {
+    "id": 4,
+    "userImg": "/images/hyeriShin/story_users_info_img4.png",
+    "nickname": "Hacho",
+    "time": "1시간전"
+  }
+]
