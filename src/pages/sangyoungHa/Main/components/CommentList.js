@@ -7,43 +7,41 @@ export class CommentList extends Component {
     super();
     this.state = {
       comment: '',
-      myArray: [],
+      commentCopy: [],
     };
   }
 
-  // 댓글 입력 내용을 state 로 저장해주는 함수
   commentSave = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
   };
-  // state 로 저장된 입력값을 comment 라는 object 로 unshift 를 통해 넣어준다.
+
   uploadComment = e => {
-    const { comment, myArray } = this.state;
-    myArray.push({ commentKey: comment });
+    const { comment, commentCopy } = this.state;
+    let addComment = commentCopy.concat(comment);
     this.setState({
+      commentCopy: addComment,
       comment: '',
     });
   };
 
   render() {
-    const { myArray, comment } = this.state;
+    const { commentCopy, comment } = this.state;
     const { commentSave, uploadComment } = this;
     return (
       <div className="commentList">
         <div>
           <br />
-          {myArray.map(comment => {
-            return <Comment comments={comment.commentKey} />;
+          {commentCopy.map((comment, index) => {
+            return <Comment key={index} comments={comment} />;
           })}
         </div>
 
         <div className="comment-bar">
-          {/*댓글 인풋 바를 감싸주는 comment-bar div, descendant of feed-bottom div */}
           <input
             className="comment-input"
-            type="text"
             placeholder="댓글달기.... "
             name="comment"
             value={comment}
@@ -51,16 +49,10 @@ export class CommentList extends Component {
             onKeyPress={event => {
               if (event.key === 'Enter') {
                 uploadComment();
-                //if 문 진입하면 함수가 바로 실행되서 () 를 써줘야되는건가..?
               }
             }}
-            //onKeyPress={this.enterToUpload}
           />
-          <button
-            id="button-id"
-            className="display-button"
-            onClick={uploadComment}
-          >
+          <button className="display-button" onClick={uploadComment}>
             게시
           </button>
         </div>

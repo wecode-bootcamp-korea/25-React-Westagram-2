@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Comment extends Component {
   render() {
-    let date = new Date();
+    const date = new Date();
     return (
       <div id="comment-insert">
         <strong>sangchu_daddy</strong>&nbsp; {this.props.comments}

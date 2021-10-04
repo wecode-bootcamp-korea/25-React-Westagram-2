@@ -70,7 +70,7 @@ $border-color: #bbb;
     margin-left: 50px;
     margin-top: 50px;
     border-radius: 8px;
-    background-color: white;
+    background-color: #f8f8f8;
   }
 
   .feeds {
@@ -102,12 +102,14 @@ $border-color: #bbb;
     border-top: 1px solid $border-color;
     border-right: 1px solid $border-color;
     border-left: 1px solid $border-color;
+    background-color: white;
   }
 
   .right-bottom {
     border-bottom: 1px solid $border-color;
     border-right: 1px solid $border-color;
     border-left: 1px solid $border-color;
+    background-color: white;
   }
 
   .round-pics {
